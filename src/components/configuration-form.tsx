@@ -11,7 +11,7 @@ function emptyItem(product?: Product): BagItem {
     quantity:1, material:product?.materials[0] || 'Leather',otherMaterial:'',color:product?.colors[0] || 'Brown',customColor:'',
     hardware:'',customization:'',description:'',notes:'',referenceName:'',custom:!product };
 }
-export function ConfigurationForm({product,initial,compact=false}: {product?: Product; initial?: BagItem; compact?: boolean}) {
+export function ConfigurationForm({product,initial,compact=false}: {product?: Product | undefined; initial?: BagItem | undefined; compact?: boolean | undefined}) {
   const id = useId();
   const cart = useCart();
   const navigate = useNavigate();

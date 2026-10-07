@@ -6,7 +6,9 @@ const storageKey = 'kimbali-bag-v1';
 function validItem(value: unknown): value is BagItem {
   if (!value || typeof value !== 'object') return false;
   const item = value as Record<string,unknown>;
-  return ['key','name','material','otherMaterial','color','customColor','hardware','customization','description','notes','referenceName'].every(k => typeof item[k] === 'string') && typeof item.custom === 'boolean' && typeof item.quantity === 'number' && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 99;
+  const customVal = item['custom'];
+  const qtyVal = item['quantity'];
+  return ['key','name','material','otherMaterial','color','customColor','hardware','customization','description','notes','referenceName'].every(k => typeof item[k] === 'string') && typeof customVal === 'boolean' && typeof qtyVal === 'number' && Number.isInteger(qtyVal) && qtyVal > 0 && qtyVal <= 99;
 }
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items,setItems] = useState<BagItem[]>([]);
