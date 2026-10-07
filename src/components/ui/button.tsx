@@ -9,6 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        studio: "bg-secondary text-secondary-foreground rounded-sm uppercase text-[11px] h-auto min-h-12 px-6 py-3 hover:bg-secondary/90",
+        clay: "bg-primary text-primary-foreground rounded-sm uppercase text-[11px] h-auto min-h-12 px-6 py-3 hover:bg-primary/90",
+        frame: "border border-foreground bg-transparent text-foreground rounded-sm uppercase text-[11px] h-auto min-h-12 px-6 py-3 hover:bg-accent",
+        text: "bg-transparent text-inherit rounded-none text-[11px] uppercase shadow-none hover:opacity-70",
+        choice: "border border-border rounded-sm bg-card text-foreground h-auto min-h-11 px-3 py-2 text-xs aria-pressed:border-primary aria-pressed:bg-accent hover:bg-accent",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
