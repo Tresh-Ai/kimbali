@@ -5,7 +5,7 @@ import { ProductArt } from '@/components/product-art';
 import { ConfigurationForm } from '@/components/configuration-form';
 import { useCart } from '@/lib/cart';
 export const Route = createFileRoute('/archive/$slug')({
-  validateSearch:(search:Record<string,unknown>) => ({edit:typeof search.edit === 'string' ? search.edit : undefined}),
+  validateSearch:(search:Record<string,unknown>): { edit?: string | undefined } => ({edit:typeof search['edit'] === 'string' ? search['edit'] : undefined}),
   loader:({params}) => {const product = products.find(p => p.slug === params.slug); if (!product) throw notFound(); return product;},
   head:({loaderData}) => pageHead(loaderData?.name || 'Reference not found',loaderData?.description || 'This archive reference is unavailable.'),
   component:ProductDetail,

@@ -3,7 +3,7 @@ export interface Product {
   images: string[]; category: string; materials: string[]; colors: string[];
   hardwareOptions: string[]; customizable: boolean; notes: string; availability: string;
 }
-const references = [
+const references: [string, string, string][] = [
   ['Vintage Shoulder Bag','Shoulder bags','Exquisitely crafted vintage leather shoulder bag with intricate stitching and patterns.'],
   ['Minimalist Totes','Totes','Two elegant leather tote bags, tan and white, showcasing minimalistic style.'],
   ['Adjustable Crossbody','Crossbody','Brown leather crossbody bag with adjustable strap.'],

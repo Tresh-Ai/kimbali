@@ -1,9 +1,9 @@
 import { studio } from '@/data/studio';
 export interface BagItem {
-  key: string; productId?: string; productSlug?: string; name: string; quantity: number;
+  key: string; productId?: string | undefined; productSlug?: string | undefined; name: string; quantity: number;
   material: string; otherMaterial: string; color: string; customColor: string;
   hardware: string; customization: string; description: string; notes: string;
-  referenceName: string; referenceData?: string; custom: boolean;
+  referenceName: string; referenceData?: string | undefined; custom: boolean;
 }
 export function generateOrder(items: BagItem[]) {
   return `Hello KÍMBÀLÌ,\n\nI'd like to place an order.\n\n${items.map((item,index) => [
