@@ -15,3 +15,7 @@
 - Keep customization forms and WhatsApp serialization reusable and separate from routes so cart editing preserves the same configuration fields.
 - Use nested archive routes with an Outlet parent and index/detail leaves so each reference has its own indexable URL.
 - Generated visual studies are explicitly illustrative and must not populate verified catalogue image fields, preventing unverified products from appearing authentic.
+- Keep conceptual campaign imagery in a separate editorial data module and link it to archive browsing, not individual products, so missing catalogue photography is never misrepresented.
+- Use the existing Embla library for editorial carousels and shared intersection-based reveal styling for motion, so touch navigation and reduced-motion support stay consistent.
+- Keep About at the existing studio URL and custom creation at the custom-order URL, so existing links remain valid while the two purposes are distinct.
+- Keep optional customization in a collapsible details section of the shared form, so editing retains all fields without overwhelming first-time visitors.

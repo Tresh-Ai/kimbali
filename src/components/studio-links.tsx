@@ -1,2 +1,2 @@
 import { studio } from '@/data/studio';
-export function PinterestLink() { return studio.pinterestUrl ? <a href={studio.pinterestUrl} target="_blank" rel="noopener noreferrer">Explore our Pinterest board ↗</a> : <span className="muted">Pinterest board · link coming soon</span>; }
+export function PinterestLink() { return studio.pinterestUrl ? <a href={studio.pinterestUrl} target="_blank" rel="noopener noreferrer">Pinterest ↗</a> : <span className="muted">Pinterest</span>; }
