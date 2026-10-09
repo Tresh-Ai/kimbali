@@ -1,10 +1,24 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { pageHead } from '@/lib/seo';
 import { ConfigurationForm } from '@/components/configuration-form';
-import { PinterestLink } from '@/components/studio-links';
+import { editorial } from '@/data/visual-studies';
 import { useCart } from '@/lib/cart';
-export const Route = createFileRoute('/custom-order')({validateSearch:(search:Record<string,unknown>): { edit?: string | undefined } => ({edit:typeof search['edit'] === 'string' ? search['edit'] : undefined}),head:() => pageHead('Made for Your Idea','Send a sketch, screenshot or description. Prepare a custom bag brief for KÍMBÀLÌ and begin your conversation on WhatsApp.'),component:CustomOrder});
+
+export const Route = createFileRoute('/custom-order')({
+  validateSearch: (search: Record<string, unknown>): { edit?: string | undefined } => ({ edit: typeof search['edit'] === 'string' ? search['edit'] : undefined }),
+  head: () => pageHead('Custom Order — Made for Your Idea', 'Describe your bag, add a reference and send your custom order to KÍMBÀLÌ on WhatsApp.'),
+  component: CustomOrder,
+});
+
 function CustomOrder() {
-  const {edit} = Route.useSearch(); const cart = useCart(); const initial = cart.items.find(item => item.key === edit && item.custom);
-  return <div className="container page custom-layout"><div><p className="eyebrow muted">Your idea / Our conversation</p><h1 className="page-title">Made for<br/>your <em className="text-primary">idea.</em></h1><p className="muted">Have your own design? Send us your sketch, a photograph or a screenshot. Tell us what you love, and what you would change.</p><p className="notice">References stay on this device. Attach the original image yourself when the WhatsApp conversation opens.</p><div className="studio-note"><p className="eyebrow">A little inspiration</p><p className="muted">Want a different style? Explore our Pinterest board for more ideas.</p><PinterestLink/></div></div><div><p className="eyebrow brief-heading">{initial ? 'Edit your commission' : 'Your custom bag brief'}</p><ConfigurationForm initial={initial}/></div></div>;
+  const { edit } = Route.useSearch(); const cart = useCart();
+  const initial = cart.items.find(item => item.key === edit && item.custom);
+  return <div className="workspace">
+    <div className="workspace-media"><img src={editorial.tote} alt="Tan leather tote" width={736} height={912} fetchPriority="high"/><h1>Made for<br/>your <em>idea.</em></h1></div>
+    <div className="workspace-panel">
+      <p className="eyebrow muted">{initial ? 'Edit your order' : 'Custom order'}</p>
+      <p className="lede muted">Tell us what you have in mind.</p>
+      <ConfigurationForm initial={initial}/>
+    </div>
+  </div>;
 }

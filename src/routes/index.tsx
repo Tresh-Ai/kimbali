@@ -1,15 +1,56 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ConfigurationForm } from '@/components/configuration-form';
-import { PinterestLink } from '@/components/studio-links';
-import { products } from '@/data/products';
+import { EditorialCarousel } from '@/components/editorial-carousel';
+import { editorial } from '@/data/visual-studies';
 import { pageHead } from '@/lib/seo';
-import hero from '@/assets/leather-study.jpg';
-import tote from '@/assets/tote-study.jpg';
-import messenger from '@/assets/messenger-study.jpg';
-export const Route = createFileRoute('/')({head:() => pageHead('Custom Leather Bag Design Studio','Find your bag in the KÍMBÀLÌ archive or bring your own idea. Custom leather bag design, made in Nigeria.'),component:Home});
+
+export const Route = createFileRoute('/')({
+  head: () => pageHead('Custom Leather Bag Design Studio', 'Find your bag in the KÍMBÀLÌ archive or bring your own idea. Custom leather bags, made in Nigeria.'),
+  component: Home,
+});
+
+const words = ['Made in Nigeria', 'Leather', 'Suede', 'Made for your idea', 'Twenty-two references', 'Your bag, your way'];
+
 function Home() {
-  return <><header className="container hero"><div className="hero-topline eyebrow muted"><span>Custom leather bag design studio</span><span>Made in Nigeria</span></div><img src={hero} alt="Illustrative leather study: a vintage shoulder bag with intricate stitching" width={800} height={1008} className="hero-photo" fetchPriority="high"/><p className="photo-caption">A leather study · illustrative imagery, not an archive product</p><div className="hero-copy"><h1>KÍMBÀLÌ.<br/><em>Nigerian</em><br/>by design.</h1><div className="hero-intro"><p>A bag begins with an idea. Find yours in our archive, or bring us something entirely your own.</p><div className="actions"><Button variant="studio" asChild><Link to="/archive">Explore the archive <span aria-hidden="true">↗</span></Link></Button><Button variant="frame" asChild><Link to="/custom-order">Start a commission <span aria-hidden="true">↗</span></Link></Button></div></div></div></header>
-    <section className="dark-band"><div className="container"><div className="section-heading"><div><p className="eyebrow">01 / Find your starting point</p><h2><em>The Archive</em></h2><p className="eyebrow">22 bag references. Your personal interpretation.</p></div><span className="eyebrow hidden md:block">A shape to make your own</span></div><div className="featured-grid">{[{product:products[1]!,image:tote},{product:products[5]!,image:messenger}].map(({product,image}) => <article key={product.id}><Link to="/archive/$slug" params={{slug:product.slug}}><img className="featured-image" src={image} alt={`Illustrative design study for ${product.name}; original catalogue photograph not yet supplied`} width={736} height={912} loading="lazy"/></Link><p className="photo-caption text-ochre">Illustrative study · actual archive image pending</p><div className="featured-info"><div><h3>{product.name}</h3><p>Reference {product.id.slice(-2)} · Customizable</p></div><Button variant="text" asChild><Link to="/archive/$slug" params={{slug:product.slug}}>Customize ↗</Link></Button></div></article>)}</div><Link to="/archive" className="archive-all">View the full archive (22) ↗</Link></div></section>
-    <section className="container commission"><div><p className="eyebrow muted">02 / Make it personal</p><h2>Made for<br/>your <span><em>idea.</em></span></h2><p className="muted">A favourite shape. A screenshot. A sketch on paper. Bring your inspiration, and let’s begin a conversation about your bag.</p><div className="studio-note"><p className="eyebrow">Material. Colour. The little details.</p><p className="muted">Choose what matters to you. We’ll talk through your material and design requests together.</p><Button variant="text" asChild><Link to="/studio">Inside the studio ↗</Link></Button><p className="mt-8 text-xs muted">Want a different style? Find inspiration on our Pinterest board.</p><PinterestLink/></div></div><div className="commission-brief"><p className="eyebrow brief-heading">Your commission brief</p><ConfigurationForm compact/></div></section></>;
+  return <>
+    <header className="campaign-hero">
+      <img src={editorial.shoulder} alt="Leather shoulder bag with hand stitching" width={800} height={1008} fetchPriority="high"/>
+      <div className="container campaign-copy">
+        <h1>KÍMBÀLÌ<br/><em>by design.</em></h1>
+        <div className="campaign-side">
+          <p>Leather bags shaped around the person who carries them.</p>
+          <Button variant="studio" className="btn-light" asChild><Link to="/archive">Explore the archive <ArrowRight/></Link></Button>
+        </div>
+      </div>
+    </header>
+
+    <div className="marquee" aria-hidden="true"><div className="marquee-track">{[...words, ...words].map((word, i) => <span key={i}>{word}</span>)}</div></div>
+
+    <section className="statement container"><p className="reveal">Every bag begins as an idea. <em>Some are ours. Some are yours.</em> All of them are made to be kept.</p></section>
+
+    <EditorialCarousel/>
+
+    <section className="bento container">
+      <div className="bento-head reveal"><h2>Your bag,<br/><em className="text-primary">your details.</em></h2><p className="muted">Material, colour, hardware — every reference in the archive can be made your own.</p></div>
+      <div className="bento-grid reveal">
+        <Link to="/archive" className="bento-tile tall has-image"><img src={editorial.tote} alt="Tan leather tote" loading="lazy" width={736} height={912}/><span className="bento-label">Totes</span></Link>
+        <div className="bento-tile bento-text bento-dark"><strong>22</strong><span className="eyebrow">Archive references</span></div>
+        <Link to="/archive" className="bento-tile has-image"><img src={editorial.material} alt="Leather and suede textures" loading="lazy"/><span className="bento-label">Materials</span></Link>
+        <Link to="/archive" className="bento-tile wide has-image"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy" width={736} height={912}/><span className="bento-label">A different carry</span></Link>
+      </div>
+    </section>
+
+    <section className="split">
+      <div className="split-media"><img src={editorial.atelier} alt="Leather pieces laid out on a work table" loading="lazy"/></div>
+      <div className="split-copy reveal"><p className="eyebrow muted">Custom order</p><h2>Made for<br/>your <em>idea.</em></h2><p className="muted">A sketch, a screenshot, a feeling. Bring it to us and we’ll make it real.</p><div className="actions"><Button variant="clay" asChild><Link to="/custom-order">Start a custom order <ArrowRight/></Link></Button></div></div>
+    </section>
+
+    <section className="split reverse">
+      <div className="split-media"><img src={editorial.material} alt="Close-up of leather grain" loading="lazy"/></div>
+      <div className="split-copy reveal"><p className="eyebrow muted">About</p><h2>Nigerian<br/><em>by design.</em></h2><p className="muted">Meet the studio behind every KÍMBÀLÌ bag.</p><div className="actions"><Button variant="frame" asChild><Link to="/studio">About KÍMBÀLÌ <ArrowRight/></Link></Button></div></div>
+    </section>
+
+    <section className="closing container reveal"><h2>Begin with<br/><em className="text-primary">a conversation.</em></h2><div className="actions"><Button variant="studio" asChild><Link to="/archive">Find your bag</Link></Button><Button variant="frame" asChild><Link to="/custom-order">Custom order</Link></Button></div></section>
+  </>;
 }

@@ -1,8 +1,30 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight } from 'lucide-react';
 import { pageHead } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
-import hero from '@/assets/leather-study.jpg';
-export const Route = createFileRoute('/studio')({head:() => pageHead('The Studio','KÍMBÀLÌ is a Nigerian custom leather bag design studio. Existing archive references and personal commissions, made for your idea.'),component:Studio});
-function Studio() {
-  return <div className="container page"><p className="eyebrow muted">KÍMBÀLÌ / Made in Nigeria</p><h1 className="page-title">An idea.<br/>A bag. <em>Your own.</em></h1><div className="studio-layout"><div><img src={hero} alt="Illustrative leather shoulder bag study" width={800} height={1008} loading="lazy"/><p className="photo-caption">Illustrative leather study · not an actual archive product</p></div><div className="prose"><p>KÍMBÀLÌ is a custom leather bag design studio. Made in Nigeria, made for your idea.</p><h2>Two ways to begin.</h2><p className="muted">Choose an existing design from our archive and request a personal interpretation. Or bring a bag idea of your own — a sketch, a reference or a description.</p><h2>The details are personal.</h2><p className="muted">Material, colour, hardware and the way you want to carry your bag are all part of the conversation. Share your preferences with the studio, and we’ll discuss what can be made.</p><h2>A conversation, not a checkout.</h2><p className="muted">Your selections become a brief. Send it through WhatsApp to discuss materials, design details, pricing and the next steps directly with KÍMBÀLÌ.</p><div className="actions mt-8"><Button variant="studio" asChild><Link to="/archive">Find your bag ↗</Link></Button><Button variant="frame" asChild><Link to="/custom-order">Bring your idea ↗</Link></Button></div></div></div></div>;
+import { PinterestLink } from '@/components/studio-links';
+import { editorial } from '@/data/visual-studies';
+
+export const Route = createFileRoute('/studio')({
+  head: () => pageHead('About KÍMBÀLÌ', 'KÍMBÀLÌ is a Nigerian custom leather bag design studio — archive designs and personal commissions, made for your idea.'),
+  component: About,
+});
+
+function About() {
+  return <>
+    <header className="about-hero">
+      <img src={editorial.atelier} alt="Leather pieces on a studio work table" width={1600} height={1000} fetchPriority="high"/>
+      <div className="container"><p className="eyebrow">About</p><h1>Nigerian<br/><em>by design.</em></h1></div>
+    </header>
+    <section className="statement container"><p className="reveal">KÍMBÀLÌ is a custom leather bag design studio, <em>made in Nigeria</em> and made for your idea.</p></section>
+    <section className="about-pillars">
+      <article className="reveal"><span>01</span><h3>The archive</h3><p className="muted">Twenty-two references, each ready to be reinterpreted in your material and colour.</p></article>
+      <article className="reveal reveal-delay"><span>02</span><h3>Your idea</h3><p className="muted">Bring a sketch, a photo or a description. We shape it into a bag.</p></article>
+      <article className="reveal reveal-delay"><span>03</span><h3>A conversation</h3><p className="muted">Every order is discussed directly with the studio on WhatsApp.</p></article>
+    </section>
+    <section className="split">
+      <div className="split-media"><img src={editorial.material} alt="Leather and suede textures" loading="lazy"/></div>
+      <div className="split-copy reveal"><p className="eyebrow muted">Inspiration</p><h2>Find your<br/><em>next shape.</em></h2><p className="muted">Browse the archive, or explore our Pinterest board for more ideas.</p><div className="actions"><Button variant="studio" asChild><Link to="/archive">Explore the archive <ArrowRight/></Link></Button><Button variant="frame" asChild><Link to="/custom-order">Custom order</Link></Button></div><p className="mt-8"><PinterestLink/></p></div>
+    </section>
+  </>;
 }
