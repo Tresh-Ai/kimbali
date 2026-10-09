@@ -50,24 +50,24 @@ export function ConfigurationForm({product,initial,compact=false}: {product?: Pr
   const field = (key: 'otherMaterial'|'customColor'|'hardware'|'customization'|'description'|'notes',label: string,required=false,multiline=false) => <div className="field"><label htmlFor={`${id}-${key}`}>{label}{!required && ' (optional)'}</label>{multiline ? <textarea id={`${id}-${key}`} value={item[key]} onChange={event => update(key,event.target.value)} required={required} rows={3} maxLength={3000}/> : <input id={`${id}-${key}`} value={item[key]} onChange={event => update(key,event.target.value)} required={required} maxLength={400}/>}</div>;
   return <form className="form-stack" onSubmit={submit}>
     {!product && <div className="field"><label htmlFor={`${id}-type`}>Bag type</label><select id={`${id}-type`} value={bagType} onChange={event => setBagType(event.target.value)}>{bagTypes.map(type => <option key={type}>{type}</option>)}</select></div>}
-    <fieldset className="field"><legend>Material request</legend><div className="choice-row">{materialRequests.map(material => <Button key={material} type="button" variant="choice" aria-pressed={item.material === material} onClick={() => update('material',material)}>{material}</Button>)}</div></fieldset>
+    {!product && field('description','Describe your bag',true,true)}
+    <fieldset className="field"><legend>Material</legend><div className="choice-row">{materialRequests.map(material => <Button key={material} type="button" variant="choice" aria-pressed={item.material === material} onClick={() => update('material',material)}>{material}</Button>)}</div></fieldset>
     {item.material === 'Other / Custom' && field('otherMaterial','Describe your material',true)}
-    {!compact && <>
-      <fieldset className="field"><legend>Colour request</legend><div className="choice-row">{Array.from(new Set([...colorRequests,...(product?.colors || [])])).map(color => <Button key={color} type="button" variant="choice" aria-pressed={item.color === color} onClick={() => update('color',color)}>{['Brown','Tan','Black','White','Orange'].includes(color) && <span aria-hidden="true" className={`swatch swatch-${color.toLowerCase()}`}/>} {color}</Button>)}</div></fieldset>
-      {item.color === 'Custom' && field('customColor','Describe your custom colour',true)}
-      {product && (product.hardwareOptions.length ? <div className="field"><label htmlFor={`${id}-hardware`}>Hardware request</label><select id={`${id}-hardware`} value={item.hardware} onChange={event => update('hardware',event.target.value)}><option value="">Studio recommendation</option>{product.hardwareOptions.map(value => <option key={value}>{value}</option>)}</select></div> : field('hardware','Hardware preference — to be confirmed'))}
-      {product && field('customization','Other customization requests',false,true)}
-    </>}
-    {!product && field('description',compact ? 'Your idea' : 'Describe your bag',true,true)}
-    {!compact && <>
-      <div className="field"><label htmlFor={`${id}-reference`}>Reference image (optional)</label><input id={`${id}-reference`} type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={event => readReference(event.target.files?.[0])}/><span className="muted text-xs">JPG, PNG, WebP or GIF · up to 5 MB. Keep the original to attach in WhatsApp.</span>
-        {item.referenceName && <div className="space-y-2">{item.referenceData && <img className="reference-preview" src={item.referenceData} alt="Your selected bag reference"/>}<p className="text-xs">{item.referenceName}</p><Button type="button" variant="text" onClick={() => setItem(current => ({...current,referenceName:'',referenceData:undefined}))}>Remove reference</Button></div>}
+    <fieldset className="field"><legend>Colour</legend><div className="choice-row">{Array.from(new Set([...colorRequests,...(product?.colors || [])])).map(color => <Button key={color} type="button" variant="choice" aria-pressed={item.color === color} onClick={() => update('color',color)}>{['Brown','Tan','Black','White','Orange'].includes(color) && <span aria-hidden="true" className={`swatch swatch-${color.toLowerCase()}`}/>} {color}</Button>)}</div></fieldset>
+    {item.color === 'Custom' && field('customColor','Describe your custom colour',true)}
+    {!compact && <details className="form-details" open={Boolean(initial && (initial.hardware || initial.customization || initial.notes || initial.referenceName))}>
+      <summary>Add details & a reference (optional)</summary>
+      <div className="details-body">
+        {product && (product.hardwareOptions.length ? <div className="field"><label htmlFor={`${id}-hardware`}>Hardware</label><select id={`${id}-hardware`} value={item.hardware} onChange={event => update('hardware',event.target.value)}><option value="">Studio recommendation</option>{product.hardwareOptions.map(value => <option key={value}>{value}</option>)}</select></div> : field('hardware','Hardware preference'))}
+        {product && field('customization','Other requests',false,true)}
+        <div className="field"><label htmlFor={`${id}-reference`}>Reference image (optional)</label><input id={`${id}-reference`} type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={event => readReference(event.target.files?.[0])}/><span className="muted text-xs">JPG, PNG, WebP or GIF · up to 5 MB. Attach the original in WhatsApp too.</span>
+          {item.referenceName && <div className="space-y-2">{item.referenceData && <img className="reference-preview" src={item.referenceData} alt="Your selected bag reference"/>}<p className="text-xs">{item.referenceName}</p><Button type="button" variant="text" onClick={() => setItem(current => ({...current,referenceName:'',referenceData:undefined}))}>Remove reference</Button></div>}
+        </div>
+        {field('notes','Notes',false,true)}
       </div>
-      {field('notes','Additional notes',false,true)}
-    </>}
-    <p className="muted text-xs">These are your preferences, not confirmed specifications. The studio will confirm materials, details and pricing with you.</p>
+    </details>}
     {error && <p className="error" role="alert">{error}</p>}
     <Button type="submit" variant={product ? 'studio' : 'clay'} disabled={!cart.ready || fileBusy}>{fileBusy ? 'Preparing image…' : initial ? 'Save changes' : product ? 'Add to your bag' : 'Prepare WhatsApp order'} <span aria-hidden="true">→</span></Button>
-    {compact && <Button variant="text" asChild><a href="/custom-order">Add colours, details & a reference →</a></Button>}
+    <p className="muted text-xs">The studio will confirm materials, details and pricing with you.</p>
   </form>;
 }
