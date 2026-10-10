@@ -13,5 +13,5 @@ export const Route = createFileRoute('/archive/$slug')({
 function ProductDetail() {
   const product = Route.useLoaderData(); const {edit} = Route.useSearch(); const cart = useCart();
   const initial = edit ? cart.items.find(item => item.key === edit && item.productId === product.id) : undefined;
-  return <div className="container page"><div className="breadcrumb"><Link to="/archive">The Archive</Link><span>/</span><span>{product.id}</span></div><div className="detail-grid"><div><ProductArt product={product}/></div><div><p className="eyebrow muted">{product.category} / {product.id}</p><h1>{product.name}</h1><p className="muted">{product.description}</p><p className="notice">{product.notes} Pricing is discussed directly with KÍMBÀLÌ.</p><ConfigurationForm product={product} initial={initial}/></div></div></div>;
+  return <div className="container page"><div className="breadcrumb"><Link to="/archive">The Archive</Link><span>/</span><span>{product.id}</span></div><div className="detail-grid"><div><ProductArt product={product}/></div><div><p className="eyebrow muted">{product.category} / {product.id}</p><h1>{product.name}</h1><p className="muted">{product.description}</p><ConfigurationForm product={product} initial={initial}/></div></div></div>;
 }

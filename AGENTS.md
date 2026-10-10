@@ -19,3 +19,5 @@
 - Use the existing Embla library for editorial carousels and shared intersection-based reveal styling for motion, so touch navigation and reduced-motion support stay consistent.
 - Keep About at the existing studio URL and custom creation at the custom-order URL, so existing links remain valid while the two purposes are distinct.
 - Keep optional customization in a collapsible details section of the shared form, so editing retains all fields without overwhelming first-time visitors.
+- Send the cart directly to the centralized WhatsApp serializer from Your Bag, keeping the existing order URL as a compact fallback so ordering needs no intermediate preview step.
+- Only hide scroll-reveal content after an observer registers it, and observe newly mounted content so client-side navigation cannot leave pages invisible.

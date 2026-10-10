@@ -6,7 +6,7 @@ import { useCart } from '@/lib/cart';
 
 export const Route = createFileRoute('/custom-order')({
   validateSearch: (search: Record<string, unknown>): { edit?: string | undefined } => ({ edit: typeof search['edit'] === 'string' ? search['edit'] : undefined }),
-  head: () => pageHead('Custom Order — Made for Your Idea', 'Describe your bag, add a reference and send your custom order to KÍMBÀLÌ on WhatsApp.'),
+  head: () => pageHead('Custom Order — Made for Your Idea', 'Choose your material, colour and details for a custom KÍMBÀLÌ bag.'),
   component: CustomOrder,
 });
 
