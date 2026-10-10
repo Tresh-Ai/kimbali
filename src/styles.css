@@ -336,3 +336,22 @@ textarea { resize: vertical; }
   .archive-custom { flex-direction: column; align-items: start; }
 }
 @media(prefers-reduced-motion:reduce) { .reveal, .reveal.reveal-ready { opacity: 1; transform: none; } .marquee-track { animation: none; } }
+/* Pinned horizontal scroll (home archive). No overflow:hidden on ancestors — it breaks sticky. */
+.hscroll { position: relative; background: var(--muted); }
+.hscroll-sticky { position: sticky; top: 0; height: 100vh; padding-top: 96px; padding-bottom: 28px; display: flex; flex-direction: column; justify-content: center; gap: clamp(16px, 3vh, 32px); overflow: hidden; }
+.hscroll-static { padding-block: 72px; display: flex; flex-direction: column; gap: 24px; }
+.hscroll-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+.hscroll-head h2 { font-size: clamp(40px, 5.5vw, 80px); line-height: 1; margin: 6px 0 0; }
+.hscroll-head h2 em { color: var(--primary); }
+.hscroll-viewport { overflow: hidden; padding-inline: max(24px, calc((100vw - 1280px) / 2 + 24px)); }
+.hscroll-static .hscroll-viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.hscroll-track { display: flex; gap: 24px; width: max-content; will-change: transform; }
+.hscroll-card { width: clamp(240px, calc(min(52vh, 560px) * .8), 440px); flex: none; scroll-snap-align: start; }
+.hscroll-media { display: block; overflow: hidden; border-radius: 6px; height: min(52vh, 560px); }
+.hscroll-static .hscroll-media { height: auto; aspect-ratio: 4/5; }
+.hscroll-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.hscroll-card:hover img { transform: scale(1.05); }
+.hscroll-meta { margin-top: 14px; }
+.hscroll-meta h3 { font-size: clamp(20px, 2vw, 28px); margin: 4px 0 0; }
+.hscroll-foot { display: flex; justify-content: center; }
+@media (max-width: 767px) { .hscroll-card { width: 78vw; } }
