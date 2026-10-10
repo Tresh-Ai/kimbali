@@ -4,6 +4,7 @@ import { pageHead } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
 import { editorial } from '@/data/visual-studies';
 import { KimbaliLogo } from '@/components/kimbali-logo';
+import { ScrollTextReveal } from '@/components/scroll-text-reveal';
 
 export const Route = createFileRoute('/studio')({
   head: () => pageHead('About KÍMBÀLÌ', 'KÍMBÀLÌ is a Nigerian custom leather bag design studio: archive designs and personal commissions, made for your idea.'),
@@ -20,7 +21,13 @@ function About() {
         <h1>Nigerian<br/><em>by design.</em></h1>
       </div>
     </header>
-    <section className="statement container"><p className="reveal">KÍMBÀLÌ is a custom leather bag design studio, <em>made in Nigeria</em> and made for your idea.</p></section>
+    <section className="statement container py-20">
+      <ScrollTextReveal
+        text="KÍMBÀLÌ is a custom leather bag design studio, made in Nigeria and made for your idea."
+        className="text-2xl sm:text-4xl md:text-5xl font-serif text-center max-w-4xl mx-auto leading-relaxed"
+        highlightWords={['Nigeria', 'idea']}
+      />
+    </section>
     <section className="about-pillars">
       <article className="reveal"><span>01</span><h3>The archive</h3><p className="muted">Twenty-two references, each ready to be reinterpreted in your material and colour.</p></article>
       <article className="reveal reveal-delay"><span>02</span><h3>Your idea</h3><p className="muted">Bring a sketch, a photo or a description. We shape it into a bag.</p></article>
