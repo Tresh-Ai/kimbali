@@ -191,12 +191,12 @@ textarea { resize: vertical; }
 .reveal.reveal-ready.is-visible { opacity: 1; transform: none; }
 .reveal-delay { transition-delay: .15s; }
 .btn-light { background: var(--background); color: var(--foreground); }
-.campaign-hero { position: relative; height: min(92vh, 900px); min-height: 620px; overflow: hidden; background: var(--secondary); color: var(--secondary-foreground); padding-bottom: 40px; }
+.campaign-hero { position: relative; height: min(92vh, 900px); min-height: 620px; overflow: hidden; background: var(--secondary); color: var(--secondary-foreground); padding-bottom: 60px; }
 .campaign-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: slow-zoom 18s ease-out both; }
 .campaign-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(52 44 40 / .05) 30%, rgb(52 44 40 / .72)); }
 @keyframes slow-zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
-.campaign-copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 90px; padding-bottom: 24px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+.campaign-copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 120px; padding-bottom: 32px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
 .campaign-copy h1 { font-size: clamp(64px, 11vw, 168px); line-height: .86; margin: 0; animation: rise 1.2s .2s cubic-bezier(.2,.7,.2,1) both; }
 .campaign-copy h1 em { color: var(--ochre); }
 .campaign-side { max-width: 340px; animation: rise 1.2s .5s cubic-bezier(.2,.7,.2,1) both; }
@@ -276,7 +276,7 @@ textarea { resize: vertical; }
 .choice-row button[aria-pressed=true] { border-color: var(--foreground); }
 @media(max-width:767px) {
   .campaign-hero { height: 86vh; min-height: 540px; }
-  .campaign-copy { flex-direction: column; align-items: start; bottom: 54px; padding-bottom: 20px; gap: 24px; }
+  .campaign-copy { flex-direction: column; align-items: start; bottom: 72px; padding-bottom: 24px; gap: 24px; }
   .statement, .bento, .closing { padding-block: 84px; }
   .archive-editorial { padding-block: 72px; }
   .editorial-heading, .bento-head { flex-direction: column; align-items: start; }

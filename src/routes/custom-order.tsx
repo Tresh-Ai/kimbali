@@ -14,11 +14,13 @@ function CustomOrder() {
   const { edit } = Route.useSearch(); const cart = useCart();
   const initial = cart.items.find(item => item.key === edit && item.custom);
   return <div className="workspace">
-    <div className="workspace-media"><img src={editorial.tote} alt="Tan leather tote" width={736} height={912} fetchPriority="high"/><h1>Made for<br/>your <em>idea.</em></h1></div>
+    <div className="workspace-media"><img src={editorial.tote} alt="Tan leather tote" width={736} height={912} fetchPriority="high"/><h1 className="reveal">Made for<br/>your <em>idea.</em></h1></div>
     <div className="workspace-panel">
-      <p className="eyebrow muted">{initial ? 'Edit your order' : 'Custom order'}</p>
-      <p className="lede muted">Tell us what you have in mind.</p>
-      <ConfigurationForm initial={initial}/>
+      <p className="eyebrow muted reveal">{initial ? 'Edit your order' : 'Custom order'}</p>
+      <p className="lede muted reveal reveal-delay">Tell us what you have in mind.</p>
+      <div className="reveal">
+        <ConfigurationForm initial={initial}/>
+      </div>
     </div>
   </div>;
 }

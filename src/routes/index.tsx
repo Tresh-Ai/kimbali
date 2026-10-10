@@ -19,7 +19,6 @@ function Home() {
     <header className="campaign-hero">
       <img src={editorial.shoulder} alt="Leather shoulder bag with hand stitching" width={800} height={1008} fetchPriority="high"/>
       <div className="container campaign-copy">
-        <KimbaliLogo className="h-12 w-12 text-white/90 mb-4" />
         <h1>KÍMBÀLÌ<br/><em>by design.</em></h1>
         <div className="campaign-side">
           <p>Leather bags shaped around the person who carries them.</p>
@@ -41,12 +40,22 @@ function Home() {
     <EditorialCarousel/>
 
     <section className="bento container">
-      <div className="bento-head reveal"><h2>Your bag,<br/><em className="text-primary">your details.</em></h2><p className="muted">Material, colour, hardware - every reference in the archive can be made your own.</p></div>
-      <div className="bento-grid reveal">
-        <Link to="/archive" className="bento-tile tall has-image"><img src={editorial.tote} alt="Tan leather tote" loading="lazy" width={736} height={912}/><span className="bento-label">Totes</span></Link>
-        <div className="bento-tile bento-text bento-dark"><strong>22</strong><span className="eyebrow">Archive references</span></div>
-        <Link to="/archive" className="bento-tile has-image"><img src={editorial.material} alt="Leather and suede textures" loading="lazy"/><span className="bento-label">Materials</span></Link>
-        <Link to="/archive" className="bento-tile wide has-image"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy" width={736} height={912}/><span className="bento-label">A different carry</span></Link>
+      <div className="bento-head reveal">
+        <div>
+          <p className="eyebrow muted mb-2">Customization</p>
+          <ScrollTextReveal
+            text="Your bag, your details."
+            className="text-4xl sm:text-6xl md:text-7xl font-serif leading-none"
+            highlightWords={['details.']}
+          />
+        </div>
+        <p className="muted">Material, colour, hardware - every reference in the archive can be made your own.</p>
+      </div>
+      <div className="bento-grid">
+        <Link to="/archive" className="bento-tile tall has-image reveal"><img src={editorial.tote} alt="Tan leather tote" loading="lazy" width={736} height={912}/><span className="bento-label">Totes</span></Link>
+        <div className="bento-tile bento-text bento-dark reveal reveal-delay"><strong>22</strong><span className="eyebrow">Archive references</span></div>
+        <Link to="/archive" className="bento-tile has-image reveal reveal-delay"><img src={editorial.material} alt="Leather and suede textures" loading="lazy"/><span className="bento-label">Materials</span></Link>
+        <Link to="/archive" className="bento-tile wide has-image reveal"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy" width={736} height={912}/><span className="bento-label">A different carry</span></Link>
       </div>
     </section>
 
