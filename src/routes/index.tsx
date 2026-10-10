@@ -32,7 +32,7 @@ function Home() {
     <EditorialCarousel/>
 
     <section className="bento container">
-      <div className="bento-head reveal"><h2>Your bag,<br/><em className="text-primary">your details.</em></h2><p className="muted">Material, colour, hardware — every reference in the archive can be made your own.</p></div>
+      <div className="bento-head reveal"><h2>Your bag,<br/><em className="text-primary">your details.</em></h2><p className="muted">Material, colour, hardware - every reference in the archive can be made your own.</p></div>
       <div className="bento-grid reveal">
         <Link to="/archive" className="bento-tile tall has-image"><img src={editorial.tote} alt="Tan leather tote" loading="lazy" width={736} height={912}/><span className="bento-label">Totes</span></Link>
         <div className="bento-tile bento-text bento-dark"><strong>22</strong><span className="eyebrow">Archive references</span></div>

@@ -1,0 +1,213 @@
+{
+  "studio": {
+    "name": "KÍMBÀLÌ",
+    "tagline": "Nigerian custom leather bag design studio",
+    "whatsappNumber": "08139335992",
+    "phoneNumber": "08139335992",
+    "email": "hello@kimbali.studio",
+    "pinterestUrl": ""
+  },
+  "options": {
+    "materialRequests": [
+      "Leather",
+      "Suede",
+      "Ostrich leather",
+      "Other / Custom"
+    ],
+    "colorRequests": [
+      "Brown",
+      "Tan",
+      "Black",
+      "White",
+      "Orange",
+      "Custom"
+    ],
+    "bagTypes": [
+      "Shoulder bag",
+      "Tote",
+      "Crossbody",
+      "Clutch",
+      "Backpack",
+      "Briefcase",
+      "Other"
+    ]
+  },
+  "references": [
+    {
+      "name": "Vintage Shoulder Bag",
+      "category": "Shoulder bags",
+      "description": "Exquisitely crafted vintage leather shoulder bag with intricate stitching and patterns.",
+      "image": "@/assets/leather-study.jpg",
+      "images": ["@/assets/leather-study.jpg"]
+    },
+    {
+      "name": "Minimalist Totes",
+      "category": "Totes",
+      "description": "Two elegant leather tote bags, tan and white, showcasing minimalistic style.",
+      "image": "@/assets/tote-study.jpg",
+      "images": ["@/assets/tote-study.jpg"]
+    },
+    {
+      "name": "Adjustable Crossbody",
+      "category": "Crossbody",
+      "description": "Brown leather crossbody bag with adjustable strap.",
+      "image": "@/assets/leather-study.jpg",
+      "images": ["@/assets/leather-study.jpg"]
+    },
+    {
+      "name": "Button Clutch",
+      "category": "Clutches",
+      "description": "Sleek and contemporary brown leather clutch with button accents.",
+      "image": "@/assets/material-editorial.jpg",
+      "images": ["@/assets/material-editorial.jpg"]
+    },
+    {
+      "name": "Cream Purse",
+      "category": "Handbags",
+      "description": "Cream leather purse with sleek design and metal detailing.",
+      "image": "@/assets/tote-study.jpg",
+      "images": ["@/assets/tote-study.jpg"]
+    },
+    {
+      "name": "Leather Messenger 06",
+      "category": "Messenger bags",
+      "description": "Brown leather messenger bag.",
+      "image": "@/assets/messenger-study.jpg",
+      "images": ["@/assets/messenger-study.jpg"]
+    },
+    {
+      "name": "Leather Handbag 07",
+      "category": "Handbags",
+      "description": "Stylish brown leather handbag being unveiled.",
+      "image": "@/assets/atelier-editorial.jpg",
+      "images": ["@/assets/atelier-editorial.jpg"]
+    },
+    {
+      "name": "Leather Messenger 08",
+      "category": "Messenger bags",
+      "description": "Brown leather messenger bag.",
+      "image": "@/assets/messenger-study.jpg",
+      "images": ["@/assets/messenger-study.jpg"]
+    },
+    {
+      "name": "Leather Handbag 09",
+      "category": "Handbags",
+      "description": "High-quality brown leather handbag.",
+      "image": "@/assets/leather-study.jpg",
+      "images": ["@/assets/leather-study.jpg"]
+    },
+    {
+      "name": "Brown Purse",
+      "category": "Handbags",
+      "description": "Sophisticated brown leather purse.",
+      "image": "@/assets/material-editorial.jpg",
+      "images": ["@/assets/material-editorial.jpg"]
+    },
+    {
+      "name": "Leather Briefcase",
+      "category": "Briefcases",
+      "description": "Brown leather briefcase.",
+      "image": "@/assets/messenger-study.jpg",
+      "images": ["@/assets/messenger-study.jpg"]
+    },
+    {
+      "name": "Leather Handbag 12",
+      "category": "Handbags",
+      "description": "Elegant brown leather handbag.",
+      "image": "@/assets/atelier-editorial.jpg",
+      "images": ["@/assets/atelier-editorial.jpg"]
+    },
+    {
+      "name": "Orange Handbag",
+      "category": "Handbags",
+      "description": "Stylish orange handbag.",
+      "image": "@/assets/material-editorial.jpg",
+      "images": ["@/assets/material-editorial.jpg"]
+    },
+    {
+      "name": "Leather Backpack",
+      "category": "Backpacks",
+      "description": "Sleek leather backpack.",
+      "image": "@/assets/tote-study.jpg",
+      "images": ["@/assets/tote-study.jpg"]
+    },
+    {
+      "name": "Leather Bag 15",
+      "category": "Other",
+      "description": "Stylish brown leather bag.",
+      "image": "@/assets/leather-study.jpg",
+      "images": ["@/assets/leather-study.jpg"]
+    },
+    {
+      "name": "Leather Carry Case",
+      "category": "Other",
+      "description": "Handmade leather carry case.",
+      "image": "@/assets/messenger-study.jpg",
+      "images": ["@/assets/messenger-study.jpg"]
+    },
+    {
+      "name": "Ostrich Handbag",
+      "category": "Handbags",
+      "description": "Ostrich leather handbag.",
+      "image": "@/assets/material-editorial.jpg",
+      "images": ["@/assets/material-editorial.jpg"]
+    },
+    {
+      "name": "Vintage Leather Bag",
+      "category": "Other",
+      "description": "Vintage leather bag.",
+      "image": "@/assets/leather-study.jpg",
+      "images": ["@/assets/leather-study.jpg"]
+    },
+    {
+      "name": "Chain Bag",
+      "category": "Handbags",
+      "description": "Brown leather bag with gold chain.",
+      "image": "@/assets/atelier-editorial.jpg",
+      "images": ["@/assets/atelier-editorial.jpg"]
+    },
+    {
+      "name": "Ruched Bag",
+      "category": "Handbags",
+      "description": "Ruched leather bag.",
+      "image": "@/assets/tote-study.jpg",
+      "images": ["@/assets/tote-study.jpg"]
+    },
+    {
+      "name": "Showroom Handbag",
+      "category": "Handbags",
+      "description": "Leather handbag presented in a showroom setting.",
+      "image": "@/assets/atelier-editorial.jpg",
+      "images": ["@/assets/atelier-editorial.jpg"]
+    },
+    {
+      "name": "Camera-side Handbag",
+      "category": "Handbags",
+      "description": "Brown leather handbag with vintage camera.",
+      "image": "@/assets/leather-study.jpg",
+      "images": ["@/assets/leather-study.jpg"]
+    }
+  ],
+  "visualStudies": [
+    {
+      "title": "Shoulder proportions",
+      "alt": "Structured leather shoulder bag detail",
+      "image": "@/assets/leather-study.jpg"
+    },
+    {
+      "title": "Atelier material selection",
+      "alt": "Leather swatches and study materials",
+      "image": "@/assets/atelier-editorial.jpg"
+    },
+    {
+      "title": "Everyday tote form",
+      "alt": "Tan tote bag design study",
+      "image": "@/assets/tote-study.jpg"
+    },
+    {
+      "title": "Crossbody & messenger shapes",
+      "alt": "Messenger bag structure study",
+      "image": "@/assets/messenger-study.jpg"
+    }
+  ]
+}

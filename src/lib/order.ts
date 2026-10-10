@@ -8,8 +8,8 @@ export interface BagItem {
 export function generateOrder(items: BagItem[]) {
   return `Hello KÍMBÀLÌ,\n\nI'd like to place an order.\n\n${items.map((item,index) => [
     `${index + 1}. ${item.name}${item.productId ? ` (${item.productId})` : ''}`,
-    `Quantity: ${item.quantity}`, `Material request: ${item.material}${item.otherMaterial ? ` — ${item.otherMaterial}` : ''}`,
-    `Color request: ${item.color}${item.customColor ? ` — ${item.customColor}` : ''}`,
+    `Quantity: ${item.quantity}`, `Material request: ${item.material}${item.otherMaterial ? ` - ${item.otherMaterial}` : ''}`,
+    `Color request: ${item.color}${item.customColor ? ` - ${item.customColor}` : ''}`,
     item.hardware && `Hardware request: ${item.hardware}`,
     item.customization && `Customization: ${item.customization}`,
     item.description && `Design description: ${item.description}`,
