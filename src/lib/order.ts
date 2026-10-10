@@ -14,10 +14,10 @@ export function generateOrder(items: BagItem[]) {
     item.customization && `Customization: ${item.customization}`,
     item.description && `Design description: ${item.description}`,
     item.notes && `Notes: ${item.notes}`,
-    item.referenceName && `Reference image: ${item.referenceName} (I will attach this separately in our conversation.)`,
   ].filter(Boolean).join('\n')).join('\n\n')}\n\nPlease confirm the available options, pricing and next steps. Thank you.`;
 }
 export function whatsappUrl(message: string, number = studio.whatsappNumber) {
-  const digits = number.replace(/[^0-9]/g, '');
+  const raw = number.replace(/[^0-9]/g, '');
+  const digits = /^0\d{10}$/.test(raw) ? `234${raw.slice(1)}` : raw;
   return digits ? `https://wa.me/${digits}?text=${encodeURIComponent(message)}` : null;
 }
