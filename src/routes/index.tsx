@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { EditorialCarousel } from '@/components/editorial-carousel';
 import { editorial } from '@/data/visual-studies';
 import { pageHead } from '@/lib/seo';
+import { KimbaliLogo } from '@/components/kimbali-logo';
 
 export const Route = createFileRoute('/')({
   head: () => pageHead('Custom Leather Bag Design Studio', 'Find your bag in the KÍMBÀLÌ archive or bring your own idea. Custom leather bags, made in Nigeria.'),
@@ -17,6 +18,7 @@ function Home() {
     <header className="campaign-hero">
       <img src={editorial.shoulder} alt="Leather shoulder bag with hand stitching" width={800} height={1008} fetchPriority="high"/>
       <div className="container campaign-copy">
+        <KimbaliLogo className="h-12 w-12 text-white/90 mb-4" />
         <h1>KÍMBÀLÌ<br/><em>by design.</em></h1>
         <div className="campaign-side">
           <p>Leather bags shaped around the person who carries them.</p>

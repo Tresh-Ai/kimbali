@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dialog';
 import { studio } from '@/data/studio';
 import { generateOrder, whatsappUrl, type BagItem } from '@/lib/order';
+import { KimbaliLogo } from '@/components/kimbali-logo';
 import { toast } from 'sonner';
 
 interface StudioContactOptionsProps {
@@ -61,29 +62,37 @@ export function StudioContactOptions({
           {triggerLabel} <ArrowUpRight className="ml-1 h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-background border border-border">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-serif">Contact the Studio</DialogTitle>
-          <DialogDescription className="text-muted-foreground text-sm">
+      <DialogContent className="sm:max-w-md bg-background border border-border p-6 shadow-xl">
+        <DialogHeader className="space-y-2 pb-2">
+          <div className="flex items-center gap-2.5 text-foreground">
+            <KimbaliLogo className="h-7 w-7 text-foreground shrink-0" />
+            <span className="text-xs uppercase tracking-widest font-semibold text-muted-foreground">
+              KÍMBÀLÌ Studio
+            </span>
+          </div>
+          <DialogTitle className="text-2xl font-serif tracking-tight text-foreground">
+            Talk to the studio
+          </DialogTitle>
+          <DialogDescription className="text-sm text-muted-foreground leading-relaxed">
             Choose how you would like to share your bag details or begin a conversation with our Nigerian studio.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex flex-col gap-3 py-2">
+        <div className="flex flex-col gap-2.5 pt-2">
           {waUrl && (
             <a
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors group"
+              className="flex items-center justify-between p-3.5 rounded-md border border-border/80 bg-card hover:bg-secondary/40 hover:border-foreground/30 transition-all group"
             >
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                  <MessageSquare className="h-5 w-5" />
+              <div className="flex items-center gap-3.5">
+                <div className="p-2 rounded bg-secondary text-foreground group-hover:bg-foreground group-hover:text-background transition-colors">
+                  <MessageSquare className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="font-medium text-sm">WhatsApp</p>
-                  <p className="text-xs text-muted-foreground">Direct messaging on {studio.whatsappNumber}</p>
+                  <p className="font-medium text-sm text-foreground">WhatsApp Direct</p>
+                  <p className="text-xs text-muted-foreground">{studio.whatsappNumber}</p>
                 </div>
               </div>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
@@ -92,14 +101,14 @@ export function StudioContactOptions({
 
           <a
             href={mailtoUrl}
-            className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors group"
+            className="flex items-center justify-between p-3.5 rounded-md border border-border/80 bg-card hover:bg-secondary/40 hover:border-foreground/30 transition-all group"
           >
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400">
-                <Mail className="h-5 w-5" />
+            <div className="flex items-center gap-3.5">
+              <div className="p-2 rounded bg-secondary text-foreground group-hover:bg-foreground group-hover:text-background transition-colors">
+                <Mail className="h-4 w-4" />
               </div>
               <div>
-                <p className="font-medium text-sm">Email Studio</p>
+                <p className="font-medium text-sm text-foreground">Email Studio</p>
                 <p className="text-xs text-muted-foreground">{studio.email}</p>
               </div>
             </div>
@@ -108,14 +117,14 @@ export function StudioContactOptions({
 
           <a
             href={telUrl}
-            className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors group"
+            className="flex items-center justify-between p-3.5 rounded-md border border-border/80 bg-card hover:bg-secondary/40 hover:border-foreground/30 transition-all group"
           >
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400">
-                <Phone className="h-5 w-5" />
+            <div className="flex items-center gap-3.5">
+              <div className="p-2 rounded bg-secondary text-foreground group-hover:bg-foreground group-hover:text-background transition-colors">
+                <Phone className="h-4 w-4" />
               </div>
               <div>
-                <p className="font-medium text-sm">Phone Call</p>
+                <p className="font-medium text-sm text-foreground">Phone Call</p>
                 <p className="text-xs text-muted-foreground">{studio.phoneNumber}</p>
               </div>
             </div>
@@ -125,19 +134,19 @@ export function StudioContactOptions({
           <button
             type="button"
             onClick={handleCopy}
-            className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-accent hover:text-accent-foreground transition-colors text-left group w-full"
+            className="flex items-center justify-between p-3.5 rounded-md border border-border/80 bg-card hover:bg-secondary/40 hover:border-foreground/30 transition-all text-left group w-full"
           >
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400">
-                {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+            <div className="flex items-center gap-3.5">
+              <div className="p-2 rounded bg-secondary text-foreground group-hover:bg-foreground group-hover:text-background transition-colors">
+                {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
               </div>
               <div>
-                <p className="font-medium text-sm">Copy Details to Clipboard</p>
-                <p className="text-xs text-muted-foreground">Paste into any messaging app or email</p>
+                <p className="font-medium text-sm text-foreground">Copy Order Details</p>
+                <p className="text-xs text-muted-foreground">Copy details to paste into any app</p>
               </div>
             </div>
             {copied ? (
-              <span className="text-xs font-medium text-emerald-600">Copied!</span>
+              <span className="text-xs font-semibold tracking-wide uppercase text-foreground">Copied!</span>
             ) : (
               <Copy className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
             )}
