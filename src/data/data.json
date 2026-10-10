@@ -9,17 +9,17 @@
   },
   "options": {
     "materialRequests": [
-      "Leather",
       "Suede",
+      "Plain",
+      "Croc",
       "Ostrich leather",
       "Other / Custom"
     ],
     "colorRequests": [
-      "Brown",
-      "Tan",
       "Black",
-      "White",
-      "Orange",
+      "Brown",
+      "Blue",
+      "Burgundy",
       "Custom"
     ],
     "bagTypes": [
