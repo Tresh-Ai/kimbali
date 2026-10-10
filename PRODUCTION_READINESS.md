@@ -32,11 +32,11 @@ This document outlines everything completed to make the KÍMBÀLÌ website produ
 ### A. Studio Contact Information (`src/data/data.json`)
 Verify or update the following fields in `src/data/data.json`:
 - **WhatsApp & Phone Number**: Ensure `08139335992` (or your preferred studio line) is active on WhatsApp Business. The app automatically converts `08...` to international format (`+2348139335992`).
-- **Email Address**: Confirm `hello@kimbali.studio` (or your active inbox) is receiving emails.
+- **Email Address**: Confirm `hello@kimbali-crafted-luxury.vercel.app` (or your active inbox) is receiving emails.
 - **Social Media**: If available, update `"pinterestUrl"` or add your Instagram link.
 
 ### B. Domain Name & DNS Configuration
-1. **Custom Domain**: Point your primary domain (e.g. `kimbali.studio` or `kimbali.ng`) to your hosting platform.
+1. **Custom Domain**: Point your primary domain (e.g. `kimbali-crafted-luxury.vercel.app` or `kimbali.ng`) to your hosting platform.
 2. **DNS Records**:
    - `A` / `CNAME` records pointing to your host (Vercel, Cloudflare, Netlify, or server IP).
    - Ensure `https` SSL certificate is issued and auto-renewing.
