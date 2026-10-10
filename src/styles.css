@@ -231,8 +231,8 @@ textarea { resize: vertical; }
 .bento-tile:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 16px 36px -8px rgb(0 0 0 / .14); border-color: color-mix(in oklab, var(--foreground) 30%, transparent); }
 .bento-tile.tall { grid-row: span 2; grid-column: span 2; }
 .bento-tile.wide { grid-column: span 2; }
-.bento-label { position: absolute; left: 20px; bottom: 20px; z-index: 2; color: #fff; font-family: var(--font-display); font-size: 26px; line-height: 1; padding: 8px 18px; border-radius: 999px; background: rgb(0 0 0 / .35); backdrop-filter: blur(12px); border: 1px solid rgb(255 255 255 / .2); transition: transform .4s ease, background .4s ease; }
-.bento-tile:hover .bento-label { transform: translateY(-4px); background: rgb(0 0 0 / .55); }
+.bento-label { position: absolute; left: 20px; bottom: 20px; z-index: 2; color: #fff; font-family: var(--font-display); font-size: 26px; line-height: 1; padding: 0; background: transparent; transition: transform .4s ease; }
+.bento-tile:hover .bento-label { transform: translateY(-4px); }
 .bento-tile.has-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgb(30 24 22 / .65)); pointer-events: none; }
 .bento-text { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
 .bento-text strong { font-family: var(--font-display); font-weight: 400; font-size: 92px; line-height: .9; color: var(--primary); }
