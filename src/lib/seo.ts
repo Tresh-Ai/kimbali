@@ -1,7 +1,8 @@
-export function pageHead(title: string, description: string, path = '', image = 'https://kimbali.studio/og-image.webp') {
-  const fullTitle = `${title} | KÍMBÀLÌ`;
+export function pageHead(title: string, description: string, path = '', image = '/og-image.webp') {
+  const fullTitle = title.startsWith('KÍMBÀLÌ') ? title : `KÍMBÀLÌ | ${title}`;
   const canonicalUrl = `https://kimbali.studio${path}`;
   const siteUrl = 'https://kimbali.studio';
+  const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -46,13 +47,16 @@ export function pageHead(title: string, description: string, path = '', image = 
       { property: 'og:title', content: fullTitle },
       { property: 'og:description', content: description },
       { property: 'og:url', content: canonicalUrl },
-      { property: 'og:image', content: image },
+      { property: 'og:image', content: imageUrl },
+      { property: 'og:image:type', content: 'image/webp' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
       { property: 'og:image:alt', content: fullTitle },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@yourusername' },
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: description },
-      { name: 'twitter:image', content: image },
+      { name: 'twitter:image', content: imageUrl },
     ],
     links: [
       { rel: 'canonical', href: canonicalUrl },
