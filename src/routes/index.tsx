@@ -19,6 +19,7 @@ function Home() {
     <header className="campaign-hero">
       <img src={editorial.shoulder} alt="Leather shoulder bag with hand stitching" width={800} height={1008} fetchPriority="high"/>
       <div className="container campaign-copy">
+        <KimbaliLogo className="h-12 w-12 text-white/90 mb-4" />
         <h1>KÍMBÀLÌ<br/><em>by design.</em></h1>
         <div className="campaign-side">
           <p>Leather bags shaped around the person who carries them.</p>
