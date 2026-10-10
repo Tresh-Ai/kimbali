@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CartProvider } from '@/lib/cart';
 import { SiteShell } from '@/components/site-shell';
+import { Toaster } from '@/components/ui/sonner';
 
 function NotFoundComponent() {
   return (
@@ -80,17 +81,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "KÍMBÀLÌ — Custom Leather Bag Design Studio" },
-      { name: "description", content: "Custom leather bags, made in Nigeria. Find your design or bring your own idea to KÍMBÀLÌ." },
+      { title: "KÍMBÀLÌ | Custom Leather Bag Design Studio" },
+      { name: "description", content: "Custom leather bags, made in Nigeria. Find your design in our archive or bring your own idea to KÍMBÀLÌ." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "KÍMBÀLÌ" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#A85A3C" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "stylesheet", href: appCss },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fira+Sans:wght@300;400;500;600&display=swap" },
     ],
   }),
@@ -108,6 +112,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Toaster />
         <Scripts />
       </body>
     </html>
@@ -119,8 +124,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <CartProvider><SiteShell><Outlet /></SiteShell></CartProvider>
+      <CartProvider>
+        <SiteShell>
+          <Outlet />
+        </SiteShell>
+      </CartProvider>
     </QueryClientProvider>
   );
 }

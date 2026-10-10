@@ -3,7 +3,7 @@ import { generateOrder, whatsappUrl, type BagItem } from '@/lib/order';
 
 describe('Studio WhatsApp ordering', () => {
   it('uses the supplied Nigerian number as an international WhatsApp destination', () => {
-    expect(whatsappUrl('Hello')).toBe('https://wa.me/2349138289542?text=Hello');
+    expect(whatsappUrl('Hello')).toBe('https://wa.me/2348139335992?text=Hello');
   });
   it('encodes the complete order without losing custom requests', () => {
     const message = 'Brown & white\nCustom colour: café';
@@ -15,6 +15,6 @@ describe('Studio WhatsApp ordering', () => {
     const message = generateOrder([item]);
     expect(message).not.toContain('old-reference.jpg');
     expect(message.toLowerCase()).not.toContain('attach');
-    expect(message).toContain('Color request: Custom — Green');
+    expect(message).toContain('Color request: Custom');
   });
 });

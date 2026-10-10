@@ -1,5 +1,15 @@
-// Empty destinations intentionally disable external handoff until verified.
-export const studio = { name: 'KÍMBÀLÌ', whatsappNumber: '09138289542', pinterestUrl: '' };
-export const materialRequests = ['Leather', 'Suede', 'Ostrich leather', 'Other / Custom'];
-export const colorRequests = ['Brown', 'Tan', 'Black', 'White', 'Orange', 'Custom'];
-export const bagTypes = ['Shoulder bag', 'Tote', 'Crossbody', 'Clutch', 'Backpack', 'Briefcase', 'Other'];
+import siteData from './data.json';
+
+export interface StudioInfo {
+  name: string;
+  tagline: string;
+  whatsappNumber: string;
+  phoneNumber: string;
+  email: string;
+  pinterestUrl: string;
+}
+
+export const studio: StudioInfo = siteData.studio;
+export const materialRequests: string[] = siteData.options.materialRequests;
+export const colorRequests: string[] = siteData.options.colorRequests;
+export const bagTypes: string[] = siteData.options.bagTypes;
