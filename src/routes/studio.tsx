@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { pageHead } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
 import { editorial } from '@/data/visual-studies';
+import { KimbaliLogo } from '@/components/kimbali-logo';
 
 export const Route = createFileRoute('/studio')({
   head: () => pageHead('About KÍMBÀLÌ', 'KÍMBÀLÌ is a Nigerian custom leather bag design studio: archive designs and personal commissions, made for your idea.'),
@@ -13,7 +14,11 @@ function About() {
   return <>
     <header className="about-hero">
       <img src={editorial.atelier} alt="Leather pieces on a studio work table" width={1600} height={1000} fetchPriority="high"/>
-      <div className="container"><p className="eyebrow">About</p><h1>Nigerian<br/><em>by design.</em></h1></div>
+      <div className="container">
+        <KimbaliLogo className="h-10 w-10 text-white/90 mb-3" />
+        <p className="eyebrow">About</p>
+        <h1>Nigerian<br/><em>by design.</em></h1>
+      </div>
     </header>
     <section className="statement container"><p className="reveal">KÍMBÀLÌ is a custom leather bag design studio, <em>made in Nigeria</em> and made for your idea.</p></section>
     <section className="about-pillars">
