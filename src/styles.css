@@ -57,7 +57,7 @@ img { display: block; max-width: 100%; }
 .muted { color: var(--muted-foreground); }
 .site-nav { position: sticky; top: 0; z-index: 30; background: color-mix(in oklab,var(--background) 94%,transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 80px; gap: 24px; }
-.wordmark { font-family: var(--font-display); font-size: 29px; line-height: 1; }
+.wordmark { font-family: var(--font-display); font-size: 29px; line-height: 1; display: inline-flex; align-items: center; gap: 10px; }
 .nav-links { display: flex; gap: 32px; font-size: 11px; text-transform: uppercase; }
 .nav-links a[aria-current=page] { color: var(--primary); }
 .nav-tools { display: flex; align-items: center; gap: 15px; }
@@ -94,7 +94,7 @@ img { display: block; max-width: 100%; }
 .studio-note { margin-top: 40px; border-top: 1px solid var(--border); padding-top: 28px; }
 .site-footer { padding-block: 64px 26px; border-top: 1px solid var(--border); }
 .footer-brand { text-align: center; margin-bottom: 40px; }
-.footer-brand .wordmark { font-size: 48px; display: block; margin-bottom: 16px; }
+.footer-brand .wordmark { font-size: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px; }
 .footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; font-size: 11px; }
 .footer-links>div { display: flex; flex-direction: column; gap: 12px; }
 .footer-links>div:last-child { align-items: end; }
@@ -191,12 +191,12 @@ textarea { resize: vertical; }
 .reveal.reveal-ready.is-visible { opacity: 1; transform: none; }
 .reveal-delay { transition-delay: .15s; }
 .btn-light { background: var(--background); color: var(--foreground); }
-.campaign-hero { position: relative; height: min(92vh, 900px); min-height: 560px; overflow: hidden; background: var(--secondary); color: var(--secondary-foreground); }
+.campaign-hero { position: relative; height: min(92vh, 900px); min-height: 620px; overflow: hidden; background: var(--secondary); color: var(--secondary-foreground); padding-bottom: 40px; }
 .campaign-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: slow-zoom 18s ease-out both; }
 .campaign-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(52 44 40 / .05) 30%, rgb(52 44 40 / .72)); }
 @keyframes slow-zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
 @keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
-.campaign-copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 56px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+.campaign-copy { position: absolute; z-index: 1; left: 0; right: 0; bottom: 90px; padding-bottom: 24px; display: flex; justify-content: space-between; align-items: end; gap: 40px; }
 .campaign-copy h1 { font-size: clamp(64px, 11vw, 168px); line-height: .86; margin: 0; animation: rise 1.2s .2s cubic-bezier(.2,.7,.2,1) both; }
 .campaign-copy h1 em { color: var(--ochre); }
 .campaign-side { max-width: 340px; animation: rise 1.2s .5s cubic-bezier(.2,.7,.2,1) both; }
@@ -227,11 +227,13 @@ textarea { resize: vertical; }
 .bento-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 48px; }
 .bento-head p { max-width: 380px; }
 .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 16px; }
-.bento-tile { position: relative; overflow: hidden; background: var(--muted); display: block; }
+.bento-tile { position: relative; overflow: hidden; background: var(--muted); display: block; border-radius: 12px; border: 1px solid var(--border); transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s cubic-bezier(.16,1,.3,1), border-color .5s; }
+.bento-tile:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 16px 36px -8px rgb(0 0 0 / .14); border-color: color-mix(in oklab, var(--foreground) 30%, transparent); }
 .bento-tile.tall { grid-row: span 2; grid-column: span 2; }
 .bento-tile.wide { grid-column: span 2; }
-.bento-label { position: absolute; left: 20px; bottom: 18px; z-index: 1; color: var(--secondary-foreground); font-family: var(--font-display); font-size: 30px; line-height: 1; }
-.bento-tile.has-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgb(52 44 40 / .6)); }
+.bento-label { position: absolute; left: 20px; bottom: 20px; z-index: 2; color: #fff; font-family: var(--font-display); font-size: 26px; line-height: 1; padding: 8px 18px; border-radius: 999px; background: rgb(0 0 0 / .35); backdrop-filter: blur(12px); border: 1px solid rgb(255 255 255 / .2); transition: transform .4s ease, background .4s ease; }
+.bento-tile:hover .bento-label { transform: translateY(-4px); background: rgb(0 0 0 / .55); }
+.bento-tile.has-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgb(30 24 22 / .65)); pointer-events: none; }
 .bento-text { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
 .bento-text strong { font-family: var(--font-display); font-weight: 400; font-size: 92px; line-height: .9; color: var(--primary); }
 .bento-dark { background: var(--secondary); color: var(--secondary-foreground); }
@@ -273,8 +275,8 @@ textarea { resize: vertical; }
 .form-details .details-body { display: grid; gap: 22px; padding-bottom: 28px; }
 .choice-row button[aria-pressed=true] { border-color: var(--foreground); }
 @media(max-width:767px) {
-  .campaign-hero { height: 86vh; }
-  .campaign-copy { flex-direction: column; align-items: start; bottom: 32px; gap: 24px; }
+  .campaign-hero { height: 86vh; min-height: 540px; }
+  .campaign-copy { flex-direction: column; align-items: start; bottom: 54px; padding-bottom: 20px; gap: 24px; }
   .statement, .bento, .closing { padding-block: 84px; }
   .archive-editorial { padding-block: 72px; }
   .editorial-heading, .bento-head { flex-direction: column; align-items: start; }

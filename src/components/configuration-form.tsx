@@ -225,32 +225,26 @@ export function ConfigurationForm({
       {item.color === 'Custom' && field('customColor', 'Describe your custom colour', true)}
 
       {!compact && (
-        <details
-          className="form-details"
-          open={Boolean(initial && (initial.hardware || initial.customization || initial.notes))}
-        >
-          <summary>More details (optional)</summary>
-          <div className="details-body">
-            {product ? (
-              product.hardwareOptions.length ? (
-                <CustomSelect
-                  id={`${id}-hardware`}
-                  label="Hardware"
-                  value={item.hardware}
-                  options={[
-                    { label: 'Studio recommendation', value: '' },
-                    ...product.hardwareOptions.map(h => ({ label: h, value: h })),
-                  ]}
-                  onChange={val => update('hardware', val)}
-                />
-              ) : (
-                field('hardware', 'Hardware preference')
-              )
-            ) : null}
-            {product && field('customization', 'Other requests', false, true)}
-            {field('notes', 'Notes', false, true)}
-          </div>
-        </details>
+        <div className="form-details space-y-4 pt-2 border-t border-border/60">
+          {product ? (
+            product.hardwareOptions.length ? (
+              <CustomSelect
+                id={`${id}-hardware`}
+                label="Hardware"
+                value={item.hardware}
+                options={[
+                  { label: 'Studio recommendation', value: '' },
+                  ...product.hardwareOptions.map(h => ({ label: h, value: h })),
+                ]}
+                onChange={val => update('hardware', val)}
+              />
+            ) : (
+              field('hardware', 'Hardware preference')
+            )
+          ) : null}
+          {product && field('customization', 'Other requests', false, true)}
+          {field('notes', 'Notes', false, true)}
+        </div>
       )}
 
       <Button type="submit" variant={product ? 'studio' : 'clay'} disabled={!cart.ready}>

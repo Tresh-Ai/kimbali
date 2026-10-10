@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { EditorialCarousel } from '@/components/editorial-carousel';
 import { editorial } from '@/data/visual-studies';
 import { pageHead } from '@/lib/seo';
+import { KimbaliLogo } from '@/components/kimbali-logo';
+import { ScrollTextReveal } from '@/components/scroll-text-reveal';
 
 export const Route = createFileRoute('/')({
   head: () => pageHead('Custom Leather Bag Design Studio', 'Find your bag in the KÍMBÀLÌ archive or bring your own idea. Custom leather bags, made in Nigeria.'),
@@ -27,7 +29,13 @@ function Home() {
 
     <div className="marquee" aria-hidden="true"><div className="marquee-track">{[...words, ...words].map((word, i) => <span key={i}>{word}</span>)}</div></div>
 
-    <section className="statement container"><p className="reveal">Every bag begins as an idea. <em>Some are ours. Some are yours.</em> All of them are made to be kept.</p></section>
+    <section className="statement container py-20">
+      <ScrollTextReveal
+        text="Every bag begins as an idea. Some are ours. Some are yours. All of them are made to be kept."
+        className="text-2xl sm:text-4xl md:text-5xl font-serif text-center max-w-4xl mx-auto leading-relaxed"
+        highlightWords={['ours', 'yours']}
+      />
+    </section>
 
     <EditorialCarousel/>
 
