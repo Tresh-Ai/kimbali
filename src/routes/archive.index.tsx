@@ -14,10 +14,13 @@ function Archive() {
   return <>
     <header className="archive-cover">
       <img src={editorial.material} alt="Conceptual leather texture study" width={1400} height={1000} fetchPriority="high"/>
-      <div className="container archive-cover-copy"><h1>The Archive</h1><p>A shape to start with. A bag to make yours.</p></div>
+      <div className="container archive-cover-copy">
+        <h1 className="reveal">The Archive</h1>
+        <p className="reveal reveal-delay">A shape to start with. A bag to make yours.</p>
+      </div>
     </header>
     <div className="container archive-browser">
-      <div className="archive-controls">
+      <div className="archive-controls reveal">
         <div className="archive-filter">
           <Button variant="text" className="archive-filter-trigger" aria-expanded={filtersOpen} aria-controls="archive-types" onClick={() => setFiltersOpen(!filtersOpen)}> {category === 'All' ? 'All shapes' : category}<ChevronDown aria-hidden="true"/></Button>
           {filtersOpen && <><Button variant="ghost" className="filter-dismiss" tabIndex={-1} aria-label="Close shape filter" onClick={() => setFiltersOpen(false)}/><div id="archive-types" className="archive-filter-menu" role="group" aria-label="Filter by bag type" onKeyDown={event => {if (event.key === 'Escape') setFiltersOpen(false);}}>{['All',...new Set(products.map(product => product.category))].map(value => <Button variant="ghost" key={value} aria-pressed={category === value} onClick={() => {setCategory(value);setFiltersOpen(false);}}>{value === 'All' ? 'All shapes' : value}{category === value && <Check aria-hidden="true"/>}</Button>)}</div></>}
@@ -25,9 +28,9 @@ function Archive() {
         <div className="archive-search"><Search size={18} aria-hidden="true"/><label htmlFor="archive-search" className="sr-only">Search the Archive</label><input id="archive-search" type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Search designs"/>{search && <Button variant="text" size="icon" aria-label="Clear search" onClick={() => setSearch('')}><X/></Button>}</div>
       </div>
       <div className="archive-result-line"><p className="muted" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'design' : 'designs'}</p>{category !== 'All' || search ? <Button variant="text" onClick={() => {setSearch('');setCategory('All');}}>Reset filters <X/></Button> : <p className="muted">Catalogue photography pending</p>}</div>
-      <div className="catalogue-grid archive-designs">{filtered.map(product => <article key={product.id} className="product-card"><Link to="/archive/$slug" params={{slug:product.slug}} aria-label={`View ${product.name}`}><ProductArt product={product}/></Link><div className="archive-card-title"><div><p className="muted">{product.id}</p><h2><Link to="/archive/$slug" params={{slug:product.slug}}>{product.name}</Link></h2></div><Button variant="text" size="icon" asChild><Link to="/archive/$slug" params={{slug:product.slug}} aria-label={`Customize ${product.name}`}><ArrowUpRight/></Link></Button></div></article>)}</div>
-      {!filtered.length && <div className="empty"><h2>No designs found</h2><Button variant="frame" onClick={() => {setSearch('');setCategory('All');}}>Show all designs</Button></div>}
-      <div className="archive-custom"><h2>Something entirely yours?</h2><Button variant="studio" asChild><Link to="/custom-order">Custom order <ArrowUpRight/></Link></Button></div>
+      <div className="catalogue-grid archive-designs">{filtered.map(product => <article key={product.id} className="product-card reveal"><Link to="/archive/$slug" params={{slug:product.slug}} aria-label={`View ${product.name}`}><ProductArt product={product}/></Link><div className="archive-card-title"><div><p className="muted">{product.id}</p><h2><Link to="/archive/$slug" params={{slug:product.slug}}>{product.name}</Link></h2></div><Button variant="text" size="icon" asChild><Link to="/archive/$slug" params={{slug:product.slug}} aria-label={`Customize ${product.name}`}><ArrowUpRight/></Link></Button></div></article>)}</div>
+      {!filtered.length && <div className="empty reveal"><h2>No designs found</h2><Button variant="frame" onClick={() => {setSearch('');setCategory('All');}}>Show all designs</Button></div>}
+      <div className="archive-custom reveal"><h2>Something entirely yours?</h2><Button variant="studio" asChild><Link to="/custom-order">Custom order <ArrowUpRight/></Link></Button></div>
     </div>
   </>;
 }

@@ -47,6 +47,7 @@ const items = [
 export function EditorialCarousel() {
   const [viewport, api] = useEmblaCarousel({ align: 'start', loop: false, dragFree: true });
   const [selected, setSelected] = useState(0);
+  const [scrollOffsetX, setScrollOffsetX] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const onSelect = useCallback(() => {
@@ -62,33 +63,22 @@ export function EditorialCarousel() {
     };
   }, [api, onSelect]);
 
-  // Scroll-driven horizontal shift as the user scrolls down past the section
+  // Parallax horizontal shift synchronized continuous with page scroll
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          if (sectionRef.current && api) {
+          if (sectionRef.current) {
             const rect = sectionRef.current.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            // Calculate progress when section is in viewport
-            const totalDistance = rect.height + windowHeight;
-            const currentPosition = windowHeight - rect.top;
-            const progress = Math.max(0, Math.min(1, currentPosition / totalDistance));
-
-            // Smoothly scroll the embla carousel as user scrolls down
             if (rect.top < windowHeight && rect.bottom > 0) {
-              const snapList = api.scrollSnapList();
-              if (snapList.length > 0) {
-                const targetIndex = Math.min(
-                  snapList.length - 1,
-                  Math.floor(progress * snapList.length)
-                );
-                if (targetIndex !== api.selectedScrollSnap()) {
-                  api.scrollTo(targetIndex);
-                }
-              }
+              const totalDistance = rect.height + windowHeight;
+              const currentPos = windowHeight - rect.top;
+              const progress = Math.max(0, Math.min(1, currentPos / totalDistance));
+              // Shift carousel up to -120px continuously as user scrolls past
+              setScrollOffsetX((progress - 0.5) * -160);
             }
           }
           ticking = false;
@@ -98,11 +88,12 @@ export function EditorialCarousel() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [api]);
+  }, []);
 
   return (
-    <section className="archive-editorial relative" ref={sectionRef}>
+    <section className="archive-editorial relative overflow-hidden" ref={sectionRef}>
       <div className="container">
         <div className="editorial-heading reveal">
           <div>
@@ -138,8 +129,9 @@ export function EditorialCarousel() {
         </div>
 
         <div
-          className="carousel-viewport overflow-hidden cursor-grab active:cursor-grabbing"
+          className="carousel-viewport overflow-hidden cursor-grab active:cursor-grabbing transition-transform duration-200 ease-out"
           ref={viewport}
+          style={{ transform: `translateX(${scrollOffsetX}px)` }}
           aria-roledescription="carousel"
           aria-label="Bag design inspiration"
         >

@@ -18,8 +18,8 @@ function Bag() {
 
   return (
     <div className="container page">
-      <p className="eyebrow muted">Your selections / Made personal</p>
-      <h1 className="page-title">
+      <p className="eyebrow muted reveal">Your selections / Made personal</p>
+      <h1 className="page-title reveal">
         Your bag<span className="text-primary">.</span>
       </h1>
       {!cart.ready ? (
@@ -39,7 +39,7 @@ function Bag() {
         </div>
       ) : (
         <div className="cart-layout">
-          <div>
+          <div className="reveal">
             {cart.items.map(item => {
               const product = products.find(p => p.id === item.productId);
               return (
@@ -136,7 +136,7 @@ function Bag() {
               </Button>
             </div>
           </div>
-          <aside className="order-summary">
+          <aside className="order-summary reveal reveal-delay">
             <h2 className="text-3xl">Make it yours.</h2>
             <p>
               {count} {count === 1 ? 'bag' : 'bags'} / {cart.items.length} {cart.items.length === 1 ? 'design' : 'designs'}
