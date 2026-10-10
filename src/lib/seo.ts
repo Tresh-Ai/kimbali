@@ -1,7 +1,7 @@
 export function pageHead(title: string, description: string, path = '', image = '/og-image.webp') {
   const fullTitle = title.startsWith('KÍMBÀLÌ') ? title : `KÍMBÀLÌ | ${title}`;
-  const canonicalUrl = `https://kimbali.studio${path}`;
-  const siteUrl = 'https://kimbali.studio';
+  const canonicalUrl = `https://kimbali-crafted-luxury.vercel.app?${path}`;
+  const siteUrl = 'https://kimbali-crafted-luxury.vercel.app';
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? '' : '/'}${image}`;
 
   const jsonLd = {
