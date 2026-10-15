@@ -355,3 +355,15 @@ textarea { resize: vertical; }
 .hscroll-meta h3 { font-size: clamp(20px, 2vw, 28px); margin: 4px 0 0; }
 .hscroll-foot { display: flex; justify-content: center; }
 @media (max-width: 767px) { .hscroll-card { width: 78vw; } }
+.pillar-sets { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; padding-block: 96px; }
+.pillar-set { border-top: 1px solid var(--border); padding-top: 24px; display: grid; gap: 14px; align-content: start; }
+.pillar-set h2 { font-size: clamp(26px, 2.4vw, 34px); margin: 0; }
+.pillar-set ul { margin: 0; padding-left: 18px; }
+.gateway { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-block: 96px; }
+.gateway-card { position: relative; display: block; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; color: var(--background); }
+.gateway-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.gateway-card:hover img { transform: scale(1.05); }
+.gateway-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 45%, color-mix(in oklab, var(--foreground) 75%, transparent)); }
+.gateway-card div { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 24px; }
+.gateway-card h3 { font-size: clamp(26px, 2.6vw, 38px); margin: 6px 0 0; }
+@media (max-width: 767px) { .gateway { grid-template-columns: 1fr; } .gateway-card { aspect-ratio: 4/3; } }
