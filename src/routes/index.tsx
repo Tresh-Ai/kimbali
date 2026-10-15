@@ -37,6 +37,12 @@ function Home() {
       />
     </section>
 
+    <section className="container gateway" aria-label="Choose your route">
+      <Link to="/archive" className="gateway-card reveal"><img src={editorial.tote} alt="Leather tote" loading="lazy"/><div><p className="eyebrow">01 · Individual pieces</p><h3>The Archive</h3></div></Link>
+      <Link to="/complimentary-design" className="gateway-card reveal reveal-delay"><img src={editorial.atelier} alt="Coordinated leather pieces" loading="lazy"/><div><p className="eyebrow">02 · Coordinated sets</p><h3>Complimentary Design</h3></div></Link>
+      <Link to="/business" className="gateway-card reveal reveal-delay"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy"/><div><p className="eyebrow">03 · Bulk & corporate</p><h3>KÍMBÀLÌ for Business</h3></div></Link>
+    </section>
+
     <EditorialCarousel/>
 
     <section className="bento container">

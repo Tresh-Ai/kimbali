@@ -3,6 +3,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { ArrowUpRight, Check, ChevronDown, Search, X } from 'lucide-react';
 import { products } from '@/data/products';
 import { editorial } from '@/data/visual-studies';
+import { groupFor } from '@/data/pillars';
 import { ProductArt } from '@/components/product-art';
 import { Button } from '@/components/ui/button';
 import { pageHead } from '@/lib/seo';
@@ -10,7 +11,7 @@ export const Route = createFileRoute('/archive/')({head:() => pageHead('The Arch
 function Archive() {
   const [category,setCategory] = useState('All'); const [search,setSearch] = useState('');
   const [filtersOpen,setFiltersOpen] = useState(false);
-  const filtered = products.filter(product => (category === 'All' || product.category === category) && `${product.name} ${product.description} ${product.id}`.toLowerCase().includes(search.toLowerCase()));
+  const filtered = products.filter(product => (category === 'All' || groupFor(product.category) === category) && `${product.name} ${product.description} ${product.id}`.toLowerCase().includes(search.toLowerCase()));
   return <>
     <header className="archive-cover">
       <img src={editorial.material} alt="Conceptual leather texture study" width={1400} height={1000} fetchPriority="high"/>
@@ -23,7 +24,7 @@ function Archive() {
       <div className="archive-controls reveal">
         <div className="archive-filter">
           <Button variant="text" className="archive-filter-trigger" aria-expanded={filtersOpen} aria-controls="archive-types" onClick={() => setFiltersOpen(!filtersOpen)}> {category === 'All' ? 'All shapes' : category}<ChevronDown aria-hidden="true"/></Button>
-          {filtersOpen && <><Button variant="ghost" className="filter-dismiss" tabIndex={-1} aria-label="Close shape filter" onClick={() => setFiltersOpen(false)}/><div id="archive-types" className="archive-filter-menu" role="group" aria-label="Filter by bag type" onKeyDown={event => {if (event.key === 'Escape') setFiltersOpen(false);}}>{['All',...new Set(products.map(product => product.category))].map(value => <Button variant="ghost" key={value} aria-pressed={category === value} onClick={() => {setCategory(value);setFiltersOpen(false);}}>{value === 'All' ? 'All shapes' : value}{category === value && <Check aria-hidden="true"/>}</Button>)}</div></>}
+          {filtersOpen && <><Button variant="ghost" className="filter-dismiss" tabIndex={-1} aria-label="Close shape filter" onClick={() => setFiltersOpen(false)}/><div id="archive-types" className="archive-filter-menu" role="group" aria-label="Filter by bag type" onKeyDown={event => {if (event.key === 'Escape') setFiltersOpen(false);}}>{['All',...new Set(products.map(product => groupFor(product.category)))].map(value => <Button variant="ghost" key={value} aria-pressed={category === value} onClick={() => {setCategory(value);setFiltersOpen(false);}}>{value === 'All' ? 'All shapes' : value}{category === value && <Check aria-hidden="true"/>}</Button>)}</div></>}
         </div>
         <div className="archive-search"><Search size={18} aria-hidden="true"/><label htmlFor="archive-search" className="sr-only">Search the Archive</label><input id="archive-search" type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Search designs"/>{search && <Button variant="text" size="icon" aria-label="Clear search" onClick={() => setSearch('')}><X/></Button>}</div>
       </div>
