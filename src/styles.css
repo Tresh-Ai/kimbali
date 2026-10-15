@@ -367,3 +367,9 @@ textarea { resize: vertical; }
 .gateway-card div { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 24px; }
 .gateway-card h3 { font-size: clamp(26px, 2.6vw, 38px); margin: 6px 0 0; }
 @media (max-width: 767px) { .gateway { grid-template-columns: 1fr; } .gateway-card { aspect-ratio: 4/3; } }
+.home-pillar { padding-top: 96px; }
+.home-pillar .pillar-sets { padding-block: 40px 96px; }
+.home-pillar .pillar-set h3 { font-size: clamp(24px, 2.2vw, 32px); margin: 0; }
+.home-pillar .pillar-set:hover h3 { color: var(--primary); }
+.biz-list { list-style: none; padding: 0; margin: 8px 0 28px; display: grid; }
+.biz-list li { padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 17px; }

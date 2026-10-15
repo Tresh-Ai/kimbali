@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EditorialCarousel } from '@/components/editorial-carousel';
 import { editorial } from '@/data/visual-studies';
+import { sets } from '@/data/pillars';
 import { pageHead } from '@/lib/seo';
 import { KimbaliLogo } from '@/components/kimbali-logo';
 import { ScrollTextReveal } from '@/components/scroll-text-reveal';
@@ -44,6 +45,18 @@ function Home() {
     </section>
 
     <EditorialCarousel/>
+
+    <section className="container home-pillar">
+      <div className="bento-head reveal"><div><p className="eyebrow muted mb-2">Complimentary Design</p><h2>Pieces made<br/><em>to match.</em></h2></div><Button variant="frame" asChild><Link to="/complimentary-design">See complimentary pieces <ArrowRight/></Link></Button></div>
+      <div className="pillar-sets">{sets.map(set => <Link key={set.name} to="/complimentary-design" className="pillar-set reveal"><h3>{set.name}</h3><p className="muted">{set.pieces.join(' + ')}</p></Link>)}</div>
+    </section>
+
+    <section className="split reverse">
+      <div className="split-media"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy"/></div>
+      <div className="split-copy reveal"><p className="eyebrow muted">KÍMBÀLÌ for Business</p><h2>Leather that<br/>carries <em>your name.</em></h2><p className="muted">For teams, clients and occasions — made in the quantity you need.</p>
+        <ul className="biz-list">{['Corporate & client gifts','Staff and team bags','Event & conference pieces','Bulk orders for retail'].map(i => <li key={i}>{i}</li>)}</ul>
+        <div className="actions"><Button variant="studio" asChild><Link to="/business">Start a business order <ArrowRight/></Link></Button></div></div>
+    </section>
 
     <section className="bento container">
       <div className="bento-head reveal">
