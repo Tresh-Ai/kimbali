@@ -6,4 +6,5 @@
 - [x] Redesign Archive with minimal copy and refined search/filter controls.
 - [x] Connect supplied WhatsApp number; remove upload requests and intermediate order steps.
 - [x] Verify navigation, Archive, cart and WhatsApp flow.
+- [x] Three pillars: Archive groups, Complimentary Design (draft sets), Business.
 - [ ] Await real catalogue photos and Pinterest link (from client).

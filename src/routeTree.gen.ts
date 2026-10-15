@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchiveRouteImport } from './routes/archive'
 import { Route as BagRouteImport } from './routes/bag'
+import { Route as BusinessRouteImport } from './routes/business'
+import { Route as ComplimentaryDesignRouteImport } from './routes/complimentary-design'
 import { Route as CustomOrderRouteImport } from './routes/custom-order'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as StudioRouteImport } from './routes/studio'
@@ -31,6 +33,16 @@ const ArchiveRoute = ArchiveRouteImport.update({
 const BagRoute = BagRouteImport.update({
   id: '/bag',
   path: '/bag',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplimentaryDesignRoute = ComplimentaryDesignRouteImport.update({
+  id: '/complimentary-design',
+  path: '/complimentary-design',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomOrderRoute = CustomOrderRouteImport.update({
@@ -63,6 +75,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRouteWithChildren
   '/bag': typeof BagRoute
+  '/business': typeof BusinessRoute
+  '/complimentary-design': typeof ComplimentaryDesignRoute
   '/custom-order': typeof CustomOrderRoute
   '/order': typeof OrderRoute
   '/studio': typeof StudioRoute
@@ -72,6 +86,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bag': typeof BagRoute
+  '/business': typeof BusinessRoute
+  '/complimentary-design': typeof ComplimentaryDesignRoute
   '/custom-order': typeof CustomOrderRoute
   '/order': typeof OrderRoute
   '/studio': typeof StudioRoute
@@ -83,6 +99,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRouteWithChildren
   '/bag': typeof BagRoute
+  '/business': typeof BusinessRoute
+  '/complimentary-design': typeof ComplimentaryDesignRoute
   '/custom-order': typeof CustomOrderRoute
   '/order': typeof OrderRoute
   '/studio': typeof StudioRoute
@@ -95,6 +113,8 @@ export interface FileRouteTypes {
     | '/'
     | '/archive'
     | '/bag'
+    | '/business'
+    | '/complimentary-design'
     | '/custom-order'
     | '/order'
     | '/studio'
@@ -104,6 +124,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/bag'
+    | '/business'
+    | '/complimentary-design'
     | '/custom-order'
     | '/order'
     | '/studio'
@@ -114,6 +136,8 @@ export interface FileRouteTypes {
     | '/'
     | '/archive'
     | '/bag'
+    | '/business'
+    | '/complimentary-design'
     | '/custom-order'
     | '/order'
     | '/studio'
@@ -125,6 +149,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ArchiveRoute: typeof ArchiveRouteWithChildren
   BagRoute: typeof BagRoute
+  BusinessRoute: typeof BusinessRoute
+  ComplimentaryDesignRoute: typeof ComplimentaryDesignRoute
   CustomOrderRoute: typeof CustomOrderRoute
   OrderRoute: typeof OrderRoute
   StudioRoute: typeof StudioRoute
@@ -151,6 +177,20 @@ declare module '@tanstack/react-router' {
       path: '/bag'
       fullPath: '/bag'
       preLoaderRoute: typeof BagRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/complimentary-design': {
+      id: '/complimentary-design'
+      path: '/complimentary-design'
+      fullPath: '/complimentary-design'
+      preLoaderRoute: typeof ComplimentaryDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/custom-order': {
@@ -208,6 +248,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ArchiveRoute: ArchiveRouteWithChildren,
   BagRoute: BagRoute,
+  BusinessRoute: BusinessRoute,
+  ComplimentaryDesignRoute: ComplimentaryDesignRoute,
   CustomOrderRoute: CustomOrderRoute,
   OrderRoute: OrderRoute,
   StudioRoute: StudioRoute,
