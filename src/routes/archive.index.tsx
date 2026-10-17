@@ -7,19 +7,14 @@ import { groupFor } from '@/data/pillars';
 import { ProductArt } from '@/components/product-art';
 import { Button } from '@/components/ui/button';
 import { pageHead } from '@/lib/seo';
+import { ArchiveCover } from '@/components/archive-cover';
 export const Route = createFileRoute('/archive/')({head:() => pageHead('The Archive','Browse 22 KÍMBÀLÌ bag references. Choose a design and request your own material, colour and details.'),component:Archive});
 function Archive() {
   const [category,setCategory] = useState('All'); const [search,setSearch] = useState('');
   const [filtersOpen,setFiltersOpen] = useState(false);
   const filtered = products.filter(product => (category === 'All' || groupFor(product.category) === category) && `${product.name} ${product.description} ${product.id}`.toLowerCase().includes(search.toLowerCase()));
   return <>
-    <header className="archive-cover">
-      <img src={editorial.material} alt="Conceptual leather texture study" width={1400} height={1000} fetchPriority="high"/>
-      <div className="container archive-cover-copy">
-        <h1 className="reveal">The Archive</h1>
-        <p className="reveal reveal-delay">A shape to start with. A bag to make yours.</p>
-      </div>
-    </header>
+    <ArchiveCover title="The Archive" description="A shape to start with. A bag to make yours." image={editorial.material} alt="Conceptual leather texture study"/>
     <div className="container archive-browser">
       <div className="archive-controls reveal">
         <div className="archive-filter">

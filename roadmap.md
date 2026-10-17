@@ -1,4 +1,7 @@
 # KÍMBÀLÌ
+- [ ] Match Complimentary and Business covers to the Archive; add shared image-led homepage previews.
+- [ ] Add illustrated complimentary collections and individual detail pages.
+- [ ] Add Business use-case imagery, concise details and bottom enquiry form; verify navigation and enquiries.
 - [x] White-and-warm-leather campaign redesign (home, About, custom order workspace).
 - [x] Readable buttons, captions removed, no form on homepage, Pinterest "coming soon" removed.
 - [x] Carousel, bento grid, split sections, scroll motion.
