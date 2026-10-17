@@ -21,3 +21,7 @@
 - Keep optional customization in a collapsible details section of the shared form, so editing retains all fields without overwhelming first-time visitors.
 - Send the cart directly to the centralized WhatsApp serializer from Your Bag, keeping the existing order URL as a compact fallback so ordering needs no intermediate preview step.
 - Only hide scroll-reveal content after an observer registers it, and observe newly mounted content so client-side navigation cannot leave pages invisible.
+
+- Use shared Archive cover and commercial collection components on content pages and homepage previews so the three commercial pillars remain visually consistent.
+- Keep illustrative complimentary imagery separate from verified products and identify it as conceptual on collection pages so draft combinations never claim authentic catalogue photography.
+- Use nested Complimentary index/detail routes with an Outlet parent so every draft combination has a focused studio enquiry and its own address.
