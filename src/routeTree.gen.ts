@@ -13,12 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArchiveRouteImport } from './routes/archive'
 import { Route as BagRouteImport } from './routes/bag'
 import { Route as BusinessRouteImport } from './routes/business'
-import { Route as ComplimentaryDesignRouteImport } from './routes/complimentary-design'
 import { Route as CustomOrderRouteImport } from './routes/custom-order'
 import { Route as OrderRouteImport } from './routes/order'
 import { Route as StudioRouteImport } from './routes/studio'
 import { Route as ArchiveIndexRouteImport } from './routes/archive.index'
 import { Route as ArchiveSlugRouteImport } from './routes/archive.$slug'
+import { Route as ComplimentaryDesignIndexRouteImport } from './routes/complimentary-design.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -38,11 +38,6 @@ const BagRoute = BagRouteImport.update({
 const BusinessRoute = BusinessRouteImport.update({
   id: '/business',
   path: '/business',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ComplimentaryDesignRoute = ComplimentaryDesignRouteImport.update({
-  id: '/complimentary-design',
-  path: '/complimentary-design',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomOrderRoute = CustomOrderRouteImport.update({
@@ -70,29 +65,35 @@ const ArchiveSlugRoute = ArchiveSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => ArchiveRoute,
 } as any)
+const ComplimentaryDesignIndexRoute =
+  ComplimentaryDesignIndexRouteImport.update({
+    id: '/complimentary-design/',
+    path: '/complimentary-design/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/archive': typeof ArchiveRouteWithChildren
   '/bag': typeof BagRoute
   '/business': typeof BusinessRoute
-  '/complimentary-design': typeof ComplimentaryDesignRoute
   '/custom-order': typeof CustomOrderRoute
   '/order': typeof OrderRoute
   '/studio': typeof StudioRoute
   '/archive/$slug': typeof ArchiveSlugRoute
   '/archive/': typeof ArchiveIndexRoute
+  '/complimentary-design/': typeof ComplimentaryDesignIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bag': typeof BagRoute
   '/business': typeof BusinessRoute
-  '/complimentary-design': typeof ComplimentaryDesignRoute
   '/custom-order': typeof CustomOrderRoute
   '/order': typeof OrderRoute
   '/studio': typeof StudioRoute
   '/archive/$slug': typeof ArchiveSlugRoute
   '/archive': typeof ArchiveIndexRoute
+  '/complimentary-design': typeof ComplimentaryDesignIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -100,12 +101,12 @@ export interface FileRoutesById {
   '/archive': typeof ArchiveRouteWithChildren
   '/bag': typeof BagRoute
   '/business': typeof BusinessRoute
-  '/complimentary-design': typeof ComplimentaryDesignRoute
   '/custom-order': typeof CustomOrderRoute
   '/order': typeof OrderRoute
   '/studio': typeof StudioRoute
   '/archive/$slug': typeof ArchiveSlugRoute
   '/archive/': typeof ArchiveIndexRoute
+  '/complimentary-design/': typeof ComplimentaryDesignIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -114,35 +115,35 @@ export interface FileRouteTypes {
     | '/archive'
     | '/bag'
     | '/business'
-    | '/complimentary-design'
     | '/custom-order'
     | '/order'
     | '/studio'
     | '/archive/$slug'
     | '/archive/'
+    | '/complimentary-design/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/bag'
     | '/business'
-    | '/complimentary-design'
     | '/custom-order'
     | '/order'
     | '/studio'
     | '/archive/$slug'
     | '/archive'
+    | '/complimentary-design'
   id:
     | '__root__'
     | '/'
     | '/archive'
     | '/bag'
     | '/business'
-    | '/complimentary-design'
     | '/custom-order'
     | '/order'
     | '/studio'
     | '/archive/$slug'
     | '/archive/'
+    | '/complimentary-design/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -150,10 +151,10 @@ export interface RootRouteChildren {
   ArchiveRoute: typeof ArchiveRouteWithChildren
   BagRoute: typeof BagRoute
   BusinessRoute: typeof BusinessRoute
-  ComplimentaryDesignRoute: typeof ComplimentaryDesignRoute
   CustomOrderRoute: typeof CustomOrderRoute
   OrderRoute: typeof OrderRoute
   StudioRoute: typeof StudioRoute
+  ComplimentaryDesignIndexRoute: typeof ComplimentaryDesignIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -184,13 +185,6 @@ declare module '@tanstack/react-router' {
       path: '/business'
       fullPath: '/business'
       preLoaderRoute: typeof BusinessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/complimentary-design': {
-      id: '/complimentary-design'
-      path: '/complimentary-design'
-      fullPath: '/complimentary-design'
-      preLoaderRoute: typeof ComplimentaryDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/custom-order': {
@@ -228,6 +222,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArchiveSlugRouteImport
       parentRoute: typeof ArchiveRoute
     }
+    '/complimentary-design/': {
+      id: '/complimentary-design/'
+      path: '/complimentary-design'
+      fullPath: '/complimentary-design/'
+      preLoaderRoute: typeof ComplimentaryDesignIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -249,10 +250,10 @@ const rootRouteChildren: RootRouteChildren = {
   ArchiveRoute: ArchiveRouteWithChildren,
   BagRoute: BagRoute,
   BusinessRoute: BusinessRoute,
-  ComplimentaryDesignRoute: ComplimentaryDesignRoute,
   CustomOrderRoute: CustomOrderRoute,
   OrderRoute: OrderRoute,
   StudioRoute: StudioRoute,
+  ComplimentaryDesignIndexRoute: ComplimentaryDesignIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

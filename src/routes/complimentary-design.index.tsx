@@ -6,7 +6,7 @@ import { sets } from '@/data/pillars';
 import { whatsappUrl } from '@/lib/order';
 import { pageHead } from '@/lib/seo';
 
-export const Route = createFileRoute('/complimentary-design')({
+export const Route = createFileRoute('/complimentary-design/')({
   head: () => pageHead('Complimentary Design', 'Coordinated KÍMBÀLÌ leather pieces and sets, made to match in one material and colour.', '/complimentary-design'),
   component: Complimentary,
 });
