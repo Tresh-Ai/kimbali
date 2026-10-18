@@ -6,13 +6,14 @@ import { editorial } from '@/data/visual-studies';
 import { pageHead } from '@/lib/seo';
 import { ComplimentaryCollection, BusinessCollection } from '@/components/pillar-collections';
 import { ScrollTextReveal } from '@/components/scroll-text-reveal';
+import { products } from '@/data/products';
 
 export const Route = createFileRoute('/')({
   head: () => pageHead('Custom Leather Bag Design Studio', 'Find your bag in the KÍMBÀLÌ archive or bring your own idea. Custom leather bags, made in Nigeria.'),
   component: Home,
 });
 
-const words = ['Made in Nigeria', 'Leather', 'Suede', 'Made for your idea', 'Twenty-two references', 'Your bag, your way'];
+const words = ['Made in Nigeria', 'Leather', 'Suede', 'Made for your idea', `${products.length} references`, 'Your bag, your way'];
 
 function Home() {
   return <>
@@ -62,7 +63,7 @@ function Home() {
       </div>
       <div className="bento-grid">
         <Link to="/archive" className="bento-tile tall has-image reveal"><img src={editorial.tote} alt="Tan leather tote" loading="lazy" width={736} height={912}/><span className="bento-label">Totes</span></Link>
-        <div className="bento-tile bento-text bento-dark reveal reveal-delay"><strong>22</strong><span className="eyebrow">Archive references</span></div>
+        <div className="bento-tile bento-text bento-dark reveal reveal-delay"><strong>{products.length}</strong><span className="eyebrow">Archive references</span></div>
         <Link to="/archive" className="bento-tile has-image reveal reveal-delay"><img src={editorial.material} alt="Leather and suede textures" loading="lazy"/><span className="bento-label">Materials</span></Link>
         <Link to="/archive" className="bento-tile wide has-image reveal"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy" width={736} height={912}/><span className="bento-label">A different carry</span></Link>
       </div>

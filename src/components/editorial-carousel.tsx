@@ -3,6 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { editorial } from '@/data/visual-studies';
+import { products } from '@/data/products';
 
 const items = [
   { title: 'Shoulder proportions', image: editorial.shoulder, alt: 'Structured leather shoulder bag study', category: 'Shoulder' },
@@ -96,7 +97,7 @@ export function EditorialCarousel() {
 
         <div className="container hscroll-foot">
           <Button variant="frame" asChild>
-            <Link to="/archive">Explore all 22 references <ArrowRight size={16} /></Link>
+            <Link to="/archive">Explore all {products.length} references <ArrowRight size={16} /></Link>
           </Button>
         </div>
       </div>

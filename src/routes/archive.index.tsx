@@ -8,7 +8,7 @@ import { ProductArt } from '@/components/product-art';
 import { Button } from '@/components/ui/button';
 import { pageHead } from '@/lib/seo';
 import { ArchiveCover } from '@/components/archive-cover';
-export const Route = createFileRoute('/archive/')({head:() => pageHead('The Archive','Browse 22 KÍMBÀLÌ bag references. Choose a design and request your own material, colour and details.'),component:Archive});
+export const Route = createFileRoute('/archive/')({head:() => pageHead('The Archive',`Browse ${products.length} KÍMBÀLÌ bag references. Choose a design and request your own material, colour and details.`),component:Archive});
 function Archive() {
   const [category,setCategory] = useState('All'); const [search,setSearch] = useState('');
   const [filtersOpen,setFiltersOpen] = useState(false);
