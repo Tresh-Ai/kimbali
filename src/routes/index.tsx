@@ -13,7 +13,7 @@ export const Route = createFileRoute('/')({
   component: Home,
 });
 
-const words = ['Made in Nigeria', 'Leather', 'Suede', 'Made for your idea', 'Twenty-two references', 'Your bag, your way'];
+const words = ['Made in Nigeria', 'Leather', 'Suede', 'Made for your idea', `${products.length} references`, 'Your bag, your way'];
 
 function Home() {
   return <>
