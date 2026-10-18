@@ -29,7 +29,7 @@ function About() {
       />
     </section>
     <section className="about-pillars">
-      <article className="reveal"><span>01</span><h3>The archive</h3><p className="muted">Twenty-two references, each ready to be reinterpreted in your material and colour.</p></article>
+      <article className="reveal"><span>01</span><h3>The archive</h3><p className="muted">{products.length} references, each ready to be reinterpreted in your material and colour.</p></article>
       <article className="reveal reveal-delay"><span>02</span><h3>Your idea</h3><p className="muted">Bring a sketch, a photo or a description. We shape it into a bag.</p></article>
       <article className="reveal reveal-delay"><span>03</span><h3>A conversation</h3><p className="muted">Every order is discussed directly with the studio on WhatsApp or email.</p></article>
     </section>
