@@ -1,9 +1,5 @@
-import siteData from './data.json';
-import atelierEditorial from '@/assets/atelier-editorial.jpg';
-import materialEditorial from '@/assets/material-editorial.jpg';
-import toteStudy from '@/assets/tote-study.jpg';
-import messengerStudy from '@/assets/messenger-study.jpg';
-import leatherStudy from '@/assets/leather-study.jpg';
+import productData from './product.json';
+import { resolveImage } from '@/lib/image-source';
 
 export interface Product {
   id: string;
@@ -21,47 +17,30 @@ export interface Product {
   availability: string;
 }
 
-const assetMap: Record<string, string> = {
-  '@/assets/atelier-editorial.jpg': atelierEditorial,
-  '@/assets/material-editorial.jpg': materialEditorial,
-  '@/assets/tote-study.jpg': toteStudy,
-  '@/assets/messenger-study.jpg': messengerStudy,
-  '@/assets/leather-study.jpg': leatherStudy,
-};
-
 interface ReferenceItem {
   name: string;
   category: string;
   description: string;
   image?: string;
   images?: string[];
+  materials?: string[];
+  colors?: string[];
 }
 
-const references = siteData.references as unknown as ReferenceItem[];
+const references = productData.archive as ReferenceItem[];
 
 export const products: Product[] = references.map((item, index) => {
-  const resolvedImage = item.image && assetMap[item.image] ? assetMap[item.image] : null;
-  const resolvedImages = item.images ? item.images.map(img => assetMap[img] || img) : [];
-
+  const n = String(index + 1).padStart(2, '0');
   return {
-    id: `KMB-${String(index + 1).padStart(2, '0')}`,
+    id: `KMB-${n}`,
     name: item.name,
     category: item.category,
     description: item.description,
-    slug: `${String(index + 1).padStart(2, '0')}-${item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
-    image: resolvedImage ?? null,
-    images: resolvedImages,
-    materials: [index === 16 ? 'Ostrich leather' : 'Leather'],
-    colors:
-      index === 1
-        ? ['Tan', 'White']
-        : index === 4
-          ? ['Cream']
-          : index === 12
-            ? ['Orange']
-            : item.description.toLowerCase().includes('brown')
-              ? ['Brown']
-              : [],
+    slug: `${n}-${item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+    image: resolveImage(item.image),
+    images: (item.images ?? []).map(img => resolveImage(img)).filter((x): x is string => !!x),
+    materials: item.materials ?? ['Leather'],
+    colors: item.colors ?? (item.description.toLowerCase().includes('brown') ? ['Brown'] : []),
     hardwareOptions: [],
     customizable: true,
     notes: 'Material, colour and detail requests are confirmed with the studio before an order is agreed.',
