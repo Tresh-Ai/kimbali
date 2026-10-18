@@ -96,7 +96,7 @@ export function EditorialCarousel() {
 
         <div className="container hscroll-foot">
           <Button variant="frame" asChild>
-            <Link to="/archive">Explore all 22 references <ArrowRight size={16} /></Link>
+            <Link to="/archive">Explore all {products.length} references <ArrowRight size={16} /></Link>
           </Button>
         </div>
       </div>
