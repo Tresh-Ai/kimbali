@@ -31,7 +31,7 @@ This document outlines everything completed to make the KÍMBÀLÌ website produ
 
 ### A. Studio Contact Information (`src/data/data.json`)
 Verify or update the following fields in `src/data/data.json`:
-- **WhatsApp & Phone Number**: Ensure `09138289542` (or your preferred studio line) is active on WhatsApp Business. The app automatically converts `08...` to international format (`+2349138289542`).
+- **WhatsApp & Phone Number**: Ensure `08139335992` (or your preferred studio line) is active on WhatsApp Business. The app automatically converts `08...` to international format (`+2348139335992`).
 - **Email Address**: Confirm `hello@kimbali.studio` (or your active inbox) is receiving emails.
 - **Social Media**: If available, update `"pinterestUrl"` or add your Instagram link.
 
