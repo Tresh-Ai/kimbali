@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { pageHead } from '@/lib/seo';
 import { Button } from '@/components/ui/button';
 import { editorial } from '@/data/visual-studies';
+import { products } from '@/data/products';
 import { KimbaliLogo } from '@/components/kimbali-logo';
 import { ScrollTextReveal } from '@/components/scroll-text-reveal';
 
