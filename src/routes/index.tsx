@@ -6,6 +6,7 @@ import { editorial } from '@/data/visual-studies';
 import { pageHead } from '@/lib/seo';
 import { ComplimentaryCollection, BusinessCollection } from '@/components/pillar-collections';
 import { ScrollTextReveal } from '@/components/scroll-text-reveal';
+import { products } from '@/data/products';
 
 export const Route = createFileRoute('/')({
   head: () => pageHead('Custom Leather Bag Design Studio', 'Find your bag in the KÍMBÀLÌ archive or bring your own idea. Custom leather bags, made in Nigeria.'),
