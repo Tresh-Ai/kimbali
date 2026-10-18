@@ -63,7 +63,7 @@ function Home() {
       </div>
       <div className="bento-grid">
         <Link to="/archive" className="bento-tile tall has-image reveal"><img src={editorial.tote} alt="Tan leather tote" loading="lazy" width={736} height={912}/><span className="bento-label">Totes</span></Link>
-        <div className="bento-tile bento-text bento-dark reveal reveal-delay"><strong>22</strong><span className="eyebrow">Archive references</span></div>
+        <div className="bento-tile bento-text bento-dark reveal reveal-delay"><strong>{products.length}</strong><span className="eyebrow">Archive references</span></div>
         <Link to="/archive" className="bento-tile has-image reveal reveal-delay"><img src={editorial.material} alt="Leather and suede textures" loading="lazy"/><span className="bento-label">Materials</span></Link>
         <Link to="/archive" className="bento-tile wide has-image reveal"><img src={editorial.messenger} alt="Leather messenger bag" loading="lazy" width={736} height={912}/><span className="bento-label">A different carry</span></Link>
       </div>
